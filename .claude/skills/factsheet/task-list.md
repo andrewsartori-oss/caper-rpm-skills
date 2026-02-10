@@ -18,7 +18,7 @@ This file contains the most important facts related to a Caper Cart deployment p
 
 ## Your Tasks
 
-RPM Fact Sheet
+RPM Fact Sheet (47 Facts)
 1. Retailer & Store
     1. Banners?
     2. Members?
