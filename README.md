@@ -9,7 +9,7 @@ This repository contains custom Claude Code skills for generating Caper cart dep
 - `/get-to-green [retailer-name]` - Generate a comprehensive status report for moving a deployment to Green
 - `/changelog-weekly [retailer-name]` - Generate a weekly changelog documenting project changes
 
-## SETUP: Claude Code
+## ***** SETUP: Claude Code *****
 
 ### Prerequisites: Claude Code Setup
 
@@ -94,7 +94,7 @@ If any step errors out (VPN, Gohan, or Claude itself), you can:
 ---
 ---
 
-## SETUP: Clone this Repo (to install the Caper RPM Skills for your use) 
+## ***** SETUP: Clone this Repo (to install the Caper RPM Skills for your use) *****
 
 #### 1. Clone this repository
 
