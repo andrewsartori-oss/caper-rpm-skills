@@ -94,7 +94,7 @@ If any step errors out (VPN, Gohan, or Claude itself), you can:
 ---
 ---
 
-## ***** SETUP: Clone this Repo (to install the Caper RPM Skills for your use) *****
+## ***** SETUP: Install these Caper RPM Skills for Your Use *****
 
 #### 1. Clone this repository
 
