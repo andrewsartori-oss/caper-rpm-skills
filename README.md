@@ -2,14 +2,14 @@
 
 This repository contains custom Claude Code skills for generating Caper cart deployment reports and documentation.
 
-## Skills Available
+### Skills Available
 
 - `/factsheet [retailer-name]` - Generate a comprehensive factsheet with all key facts about a retailer's deployment
 - `/green-todo [retailer-name]` - Generate an actionable task list to move a deployment to Green status
 - `/get-to-green [retailer-name]` - Generate a comprehensive status report for moving a deployment to Green
 - `/changelog-weekly [retailer-name]` - Generate a weekly changelog documenting project changes
 
-## Setup
+## SETUP: Claude Code
 
 ### Prerequisites: Claude Code Setup
 
@@ -92,8 +92,9 @@ If any step errors out (VPN, Gohan, or Claude itself), you can:
 - Ask in Slack: #prj-claude-code or #eng-ai-tools (include the command you ran and any error text)
 
 ---
+---
 
-### Install Caper RPM Skills in This Repository
+## SETUP: Clone this Repo (to install the Caper RPM Skills for your use) 
 
 #### 1. Clone this repository
 
