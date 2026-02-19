@@ -4,20 +4,28 @@ This repository contains custom Claude Code skills for generating Caper cart dep
 
 ### Skills Available
 
+**All skills require two arguments:**
+1. `[retailer-name]` - The retailer name (e.g., Clarks, HGG, Kroger)
+2. `[store-id]` - The internal Caper store ID (e.g., prod-clarks-1) OR "all" OR leave empty
+
+**Store ID Options:**
+- **Specific store**: `prod-clarks-1` - Focus on one specific store
+- **All stores**: `all` or leave empty - Search across all stores for that retailer
+
+---
+
 #### Project Status & Planning Skills
-- `/get-to-green [retailer-name] [store-id]` - Generate a comprehensive status report for moving a specific store deployment to Green status
-- `/green-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to move a specific store deployment to Green status
+- `/get-to-green [retailer-name] [store-id]` - Generate a comprehensive status report for moving a store deployment to Green status
+- `/green-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to move a store deployment to Green status
 - `/blindspot [retailer-name] [store-id]` - Identify tasks you've committed to or been assigned but haven't completed or accessed in 24+ hours
 
 #### Launch Readiness Skills
-- `/launch-checklist [retailer-name] [store-id]` - Generate a comprehensive launch readiness assessment with GO/NO-GO recommendation for a specific store
-- `/launch-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to launch a specific store
+- `/launch-checklist [retailer-name] [store-id]` - Generate a comprehensive launch readiness assessment with GO/NO-GO recommendation
+- `/launch-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to launch a store
 
 #### Documentation Skills
 - `/factsheet [retailer-name] [store-id]` - Generate a comprehensive factsheet with all key facts about a retailer's deployment
 - `/changelog-weekly [retailer-name] [store-id]` - Generate a weekly changelog documenting project changes
-
-**Note:** For all skills, if you want to search across all stores for a retailer, use "all" as the store-id or leave it empty.
 
 ## ***** SETUP: Claude Code *****
 
@@ -149,23 +157,26 @@ Or if using the VS Code extension, open this folder in VS Code.
 Then use any of the skills:
 
 ```
-# Project status and task management
-/get-to-green HGG prod-hgg-1
-/green-todo Clarks prod-clarks-1
+# SPECIFIC STORE - Focus on one store deployment
+/get-to-green Clarks prod-clarks-1
+/green-todo HGG prod-hgg-1
 /blindspot Kroger prod-kroger-2
-
-# Launch readiness
 /launch-checklist Albertsons prod-albertsons-5
 /launch-todo Safeway prod-safeway-2
-
-# Documentation
 /factsheet HGG prod-hgg-1
-/changelog-weekly Kroger prod-kroger-2
+/changelog-weekly Clarks prod-clarks-1
 
-# Search across all stores (use "all" or leave store-id empty)
-/factsheet Clarks all
-/changelog-weekly HGG
+# ALL STORES - Search across all stores for a retailer (two ways)
+
+# Option 1: Use "all"
+/get-to-green Clarks all
 /blindspot Kroger all
+/factsheet HGG all
+
+# Option 2: Leave store-id empty
+/get-to-green Clarks
+/blindspot Kroger
+/factsheet HGG
 ```
 
 ## Skill Details
@@ -173,23 +184,26 @@ Then use any of the skills:
 ### Project Status & Planning Skills
 
 #### `/get-to-green [retailer-name] [store-id]`
-**Purpose:** Comprehensive "get-to-green" status report for a specific store deployment
+**Purpose:** Comprehensive "get-to-green" status report for a store deployment
 
 **What it generates:**
 - Project executive summary and current status (Green/Yellow/Red)
 - Critical path items needed to achieve Green status
 - Complete risk analysis (Critical, Medium, and Future risks)
 - "Going Red" contingency plans
-- Store-specific deployment information
+- Store-specific or all-stores deployment information
 
 **Output:** `G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/get-to-green [retailer]/`
 
-**Example:** `/get-to-green HGG prod-hgg-1`
+**Examples:**
+- `/get-to-green HGG prod-hgg-1` (specific store)
+- `/get-to-green HGG all` (all stores)
+- `/get-to-green HGG` (all stores - empty store-id)
 
 ---
 
 #### `/green-todo [retailer-name] [store-id]`
-**Purpose:** Brief, actionable task list to move a specific store deployment to Green status
+**Purpose:** Brief, actionable task list to move a store deployment to Green status
 
 **What it generates:**
 - Current project status and target date
@@ -198,7 +212,10 @@ Then use any of the skills:
 
 **Output:** `green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/green-todo [retailer]/`
 
-**Example:** `/green-todo Clarks prod-clarks-1`
+**Examples:**
+- `/green-todo Clarks prod-clarks-1` (specific store)
+- `/green-todo Clarks all` (all stores)
+- `/green-todo Clarks` (all stores - empty store-id)
 
 **Note:** This is a shorter version of get-to-green - use this for quick action items, use get-to-green for comprehensive status reports.
 
@@ -238,12 +255,15 @@ Then use any of the skills:
 
 **Output:** `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/launch-checklist [retailer]/`
 
-**Example:** `/launch-checklist Albertsons prod-albertsons-5`
+**Examples:**
+- `/launch-checklist Albertsons prod-albertsons-5` (specific store)
+- `/launch-checklist Albertsons all` (all stores)
+- `/launch-checklist Albertsons` (all stores - empty store-id)
 
 ---
 
 #### `/launch-todo [retailer-name] [store-id]`
-**Purpose:** Focused, actionable task list to launch a specific store
+**Purpose:** Focused, actionable task list to launch a store
 
 **What it generates:**
 - Store launch status (retailer, store ID, location, target date, current readiness)
@@ -252,7 +272,10 @@ Then use any of the skills:
 
 **Output:** `launch-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/launch-todo [retailer]/`
 
-**Example:** `/launch-todo Safeway prod-safeway-2`
+**Examples:**
+- `/launch-todo Safeway prod-safeway-2` (specific store)
+- `/launch-todo Safeway all` (all stores)
+- `/launch-todo Safeway` (all stores - empty store-id)
 
 **Note:** This is a shorter version of launch-checklist - use this for quick action items, use launch-checklist for comprehensive readiness assessment.
 
@@ -296,9 +319,24 @@ Then use any of the skills:
 
 - Skills are defined in `.claude/skills/[skill-name]/SKILL.md`
 - Each skill searches Glean (Jira, Confluence, Google Docs, Slack) for retailer information
-- Store-specific skills use the internal Caper store ID (format: prod-retailer-#) to find targeted information
+- **All skills require a store ID argument:**
+  - **Specific store** (e.g., `prod-clarks-1`): Searches only for that store
+  - **All stores** (`all` or empty): Searches across all stores for the retailer
+- Store-specific searches use the internal Caper store ID (format: prod-retailer-#) to find targeted information
 - Generated reports are saved to your Desktop in retailer-specific folders
 - Multiple reports can be generated per day without overwriting (timestamped filenames)
+
+## Argument Pattern (All Skills)
+
+Every skill follows this pattern:
+```
+/[skill-name] [retailer-name] [store-id]
+```
+
+**Store ID options:**
+- `prod-clarks-1` → Focus on specific store
+- `all` → Search all stores for retailer
+- *(leave empty)* → Search all stores for retailer
 
 ## Requirements
 
