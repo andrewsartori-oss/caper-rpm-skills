@@ -11,15 +11,18 @@ agent: general-purpose
 Generate a comprehensive project status report for the specified retailer's next scheduled Caper cart store deployment, including tasks, risks, and what is needed to get the project to Green status for that specific store.
 
 ## Retailer and Store ID
-**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID - internal Caper ID for next store, ex: prod-clarks-1)
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID)
+- **Store ID Format**: Internal Caper store ID (ex: prod-clarks-1)
+- **All Stores Option**: If second argument is "all" or left empty, search across all stores for that retailer
 
 ## Instructions
 
 1. **Research Phase** - Gather information from all available sources:
+   - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for tickets related to $ARGUMENTS Caper deployment for the specified store
+   - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
    - Search all documentation (Confluence, Google Docs, internal docs) for $ARGUMENTS project information and store-specific details
    - Search Slack conversations for $ARGUMENTS deployment discussions, updates, and issues related to this specific store
-   - Look for the store ID (second argument) in documentation to find store-specific information
    - Look for project timelines, milestones, and deployment schedules for this store
    - Identify all critical risks, blockers, and open issues specific to this store deployment
 

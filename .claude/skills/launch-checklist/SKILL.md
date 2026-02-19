@@ -11,15 +11,18 @@ agent: general-purpose
 Generate a clean, concise launch readiness assessment for the specified retailer's next scheduled Caper cart store deployment. Assess readiness across all workstreams, check for missing artifacts, flag unresolved dependencies, and generate a launch go/no-go recommendation with evidence.
 
 ## Retailer and Store ID
-**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID - internal Caper ID for next store, ex: prod-hgg-1)
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID)
+- **Store ID Format**: Internal Caper store ID (ex: prod-hgg-1)
+- **All Stores Option**: If second argument is "all" or left empty, search across all stores for that retailer
 
 ## Instructions
 
 1. **Research Phase** - Gather information from all available sources:
+   - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for tickets related to $ARGUMENTS Caper deployment and launch preparation for the specified store
+   - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
    - Search all documentation (Confluence, Google Docs, internal docs) for $ARGUMENTS launch plans, test results, and readiness information specific to this store deployment
    - Search Slack conversations for $ARGUMENTS launch discussions, updates, blockers, and go/no-go conversations about this store
-   - Look for the store ID (second argument) in documentation to find store-specific information
    - Look for launch runbooks, test plans, training materials, and support documentation for this store
    - Identify all workstream owners and their completion status
    - Review recent testing results and any identified issues

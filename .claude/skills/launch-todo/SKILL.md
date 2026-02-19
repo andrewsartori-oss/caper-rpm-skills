@@ -11,15 +11,18 @@ agent: general-purpose
 Generate a focused, actionable task list for launching a specific store for the specified retailer's Caper cart deployment.
 
 ## Retailer and Store ID
-**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID - internal Caper ID, ex: prod-clarks-1)
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID)
+- **Store ID Format**: Internal Caper store ID (ex: prod-clarks-1)
+- **All Stores Option**: If second argument is "all" or left empty, search across all stores for that retailer
 
 ## Instructions
 
 1. **Research Phase** - Gather current store launch information:
+   - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for open tickets and blockers related to $ARGUMENTS store launch
+   - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
    - Search documentation (Confluence, Google Docs) for $ARGUMENTS store launch plans and status
    - Search Slack for recent updates, issues, and discussions about this specific store launch
-   - Look for the store ID (second argument) in documentation to find store-specific information
    - Identify current launch readiness status (GO/NO-GO/CONDITIONAL GO)
    - Understand target launch date for this store
    - Find critical items blocking or required for launch
