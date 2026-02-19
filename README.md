@@ -20,8 +20,8 @@ This repository contains custom Claude Code skills for generating Caper cart dep
 - `/blindspot [retailer-name] [store-id]` - Identify tasks you've committed to or been assigned but haven't completed or accessed in 24+ hours
 
 #### Launch Readiness Skills
-- `/launch-checklist [retailer-name] [store-id]` - Validate completion status of all 16 required launch checklist items
-- `/launch-report [retailer-name] [store-id]` - Generate a comprehensive pre-launch readiness assessment with GO/NO-GO recommendation
+- `/launch-checklist [retailer-name] [store-id]` - Validate completion status of all 16 required launch checklist items with evidence
+- `/launch-report [retailer-name] [store-id]` - Generate a comprehensive launch readiness assessment with workstream analysis and GO/NO-GO recommendation
 - `/launch-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to launch a store
 
 #### Documentation Skills
@@ -245,57 +245,70 @@ Then use any of the skills:
 ### Launch Readiness Skills
 
 #### `/launch-checklist [retailer-name] [store-id]`
-**Purpose:** Validate completion status of all 16 required launch checklist items
+**Purpose:** Validate completion status of all 16 required launch checklist items with evidence
 
 **What it generates:**
-- Launch overview (retailer, store ID, location, target launch date)
-- Status validation for all 16 consolidated launch checklist items:
-  1. Electrical complete & signed off
-  2. FC firmware updated & chargers tested
+- Launch overview (retailer, store ID, location, target launch date, overall readiness)
+- **Item-by-item validation for all 16 consolidated launch checklist items:**
+  1. Electrical complete & signed off (fixed chargers on correct circuit/voltage; GFCI stable under ≥10‑cart load)
+  2. FC firmware updated & chargers tested (all launch ports)
   3. All launch carts present (bolted, powered, no syncing issues)
-  4. HW accessories installed
-  5. W&M passed for all launch carts
-  6. 3rd-party certification (if required)
-  7. APs installed & verified per heatmap
-  8. Checkout connectivity validated
-  9. ZBC / beacons tested and passing
-  10. Software & firmware versions aligned
-  11. Store configs validated
-  12. E2E testing completed & issues logged
-  13. Cart placement confirmed
-  14. Store & OTG training completed
-  15. FSR/BA launch staffing plan confirmed
-  16. Marketing complete OR soft-launch documented
-- Evidence and owner for each item
-- Completion percentage and blockers
-- GO/NO-GO/CONDITIONAL GO recommendation
+  4. HW accessories installed (e.g., bottom tray on all designated carts)
+  5. W&M passed for all launch carts (or inspector visit scheduled)
+  6. 3rd-party certification (if required - approved, scheduled, owner confirmed)
+  7. APs installed & verified per heatmap (front end / SCO covered)
+  8. Checkout connectivity validated (finalization latency & LTE‑usage within thresholds)
+  9. ZBC / beacons tested and passing (carts progress into finalization correctly)
+  10. Software & firmware versions aligned (all launch carts)
+  11. Store configs validated (loyalty, alcohol, incentives/coupon disclaimer, roulette flags)
+  12. E2E testing completed & issues logged (scan, produce, alcohol, audit, EBT/loyalty, transfer/finalize, charging)
+  13. Cart placement confirmed (aligned to heatmaps, power, store ops)
+  14. Store & OTG training completed (incl. incident flows: QVS/network down, cart unavailability, chargers, W&M stickers)
+  15. FSR/BA launch staffing plan confirmed (launch day and D+1/D+2)
+  16. Marketing complete OR documented (arrival & installation OR soft‑launch decision if launching without signage)
+- **For each item:** Status (✅/⚠️/❌/🔍), Evidence, Owner, Last Updated, Notes, Action Required
+- Completion percentage (X% of 16 items complete)
+- Blockers & critical items summary
+- **GO/NO-GO/CONDITIONAL GO recommendation** based on validated completion status
 
 **Output:** `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/launch-checklist [retailer]/`
 
 **Examples:**
-- `/launch-checklist Clarks prod-clarks-1` (specific store)
-- `/launch-checklist Clarks all` (all stores)
-- `/launch-checklist Clarks` (all stores - empty store-id)
+- `/launch-checklist Clarks prod-clarks-1` (specific store validation)
+- `/launch-checklist Clarks all` (all Clarks stores)
+- `/launch-checklist Clarks` (all Clarks stores - empty store-id)
+
+**Use case:** Pre-launch validation to ensure all required items are complete with evidence before launching a store.
 
 ---
 
 #### `/launch-report [retailer-name] [store-id]`
-**Purpose:** Comprehensive pre-launch readiness assessment with GO/NO-GO recommendation
+**Purpose:** Comprehensive launch readiness assessment with workstream analysis and GO/NO-GO recommendation
 
 **What it generates:**
 - Launch overview (retailer, store ID, location, target launch date)
-- GO/NO-GO/CONDITIONAL GO recommendation with evidence
-- Workstream-by-workstream readiness assessment (Hardware, Software, Operations, etc.)
+- **GO/NO-GO/CONDITIONAL GO recommendation** with detailed evidence
+- **Workstream-by-workstream readiness assessment:**
+  - Hardware workstream status (carts, chargers, accessories, electrical)
+  - Software workstream status (firmware, configs, features)
+  - Operations workstream status (training, staffing, processes)
+  - Testing workstream status (E2E, connectivity, performance)
+  - Infrastructure workstream status (APs, network, beacons)
 - Critical artifacts status and missing items
-- Launch team contact information
+- Launch team contact information and roles
 - Risk assessment and contingency plans
+- Dependencies and blockers analysis
 
 **Output:** `launch-report-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/launch-report [retailer]/`
 
 **Examples:**
 - `/launch-report Albertsons prod-albertsons-5` (specific store)
-- `/launch-report Albertsons all` (all stores)
-- `/launch-report Albertsons` (all stores - empty store-id)
+- `/launch-report Albertsons all` (all Albertsons stores)
+- `/launch-report Albertsons` (all Albertsons stores - empty store-id)
+
+**Use case:** High-level executive summary with workstream rollups and strategic launch decision-making.
+
+**Note:** Use `/launch-checklist` for item-by-item validation and `/launch-report` for comprehensive workstream assessment.
 
 ---
 
@@ -314,7 +327,7 @@ Then use any of the skills:
 - `/launch-todo Safeway all` (all stores)
 - `/launch-todo Safeway` (all stores - empty store-id)
 
-**Note:** This is a shorter version of launch-report - use this for quick action items, use launch-report for comprehensive readiness assessment.
+**Note:** This is a shorter version of launch-report - use this for quick action items, use launch-report for comprehensive workstream assessment.
 
 ---
 
