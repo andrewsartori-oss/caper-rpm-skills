@@ -8,6 +8,8 @@ This file contains the tasks and risks associated with a caper deployment, inclu
 
 ## ***CRITICAL*** ##
 - This skill must focus on getting the project to green for the next caper deployment at the next scheduled store
+    - This store must be provided as an argument
+    - The format of the store must be the internal caper ID (ex: prod-clarks-1)
 
 ## Important: SKILL output
 - The get-to-green output must be an .md file that must follow this naming convention: G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md 

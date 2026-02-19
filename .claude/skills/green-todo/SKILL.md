@@ -1,28 +1,29 @@
 ---
 name: green-todo
-description: Generate an actionable task list to move a specific retailer's Caper cart deployment to Green status
-argument-hint: [retailer-name]
+description: Generate an actionable task list to move a specific retailer's next scheduled Caper cart store deployment to Green status
+argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
 ---
 
 # Green-Todo Task List Generator
 
-Generate a focused, actionable task list for moving the specified retailer's Caper cart deployment to Green status.
+Generate a focused, actionable task list for moving the specified retailer's next scheduled Caper cart store deployment to Green status.
 
-## Retailer
-**Target Retailer**: $ARGUMENTS
+## Retailer and Store ID
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID - internal Caper ID for next store, ex: prod-clarks-1)
 
 ## Instructions
 
 1. **Research Phase** - Gather current project information:
-   - Search Jira for open tickets and blockers related to $ARGUMENTS Caper deployment
-   - Search documentation (Confluence, Google Docs) for $ARGUMENTS project status
-   - Search Slack for recent updates, issues, and discussions about $ARGUMENTS deployment
-   - Identify current project status (Green/Yellow/Red)
-   - Understand project timeline and target dates
-   - Find critical path items blocking Green status
-   - Identify active risks preventing Green status
+   - Search Jira for open tickets and blockers related to $ARGUMENTS Caper deployment for the specified store
+   - Search documentation (Confluence, Google Docs) for $ARGUMENTS project status and store-specific details
+   - Search Slack for recent updates, issues, and discussions about $ARGUMENTS deployment for this specific store
+   - Look for the store ID (second argument) in documentation to find store-specific information
+   - Identify current project status (Green/Yellow/Red) for this store
+   - Understand project timeline and target dates for this store
+   - Find critical path items blocking Green status for this store
+   - Identify active risks preventing Green status for this store
 
 2. **Analysis Phase** - Determine what's needed to get to Green:
    - Assess current project status and why it's at that level

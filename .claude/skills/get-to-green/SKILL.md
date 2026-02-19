@@ -1,26 +1,27 @@
 ---
 name: get-to-green
-description: Generate a comprehensive "get-to-green" status report for a specific retailer's Caper cart deployment
-argument-hint: [retailer-name]
+description: Generate a comprehensive "get-to-green" status report for a specific retailer's next scheduled Caper cart store deployment
+argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
 ---
 
 # Get-to-Green Report Generator
 
-Generate a comprehensive project status report for the specified retailer's Caper cart deployment, including tasks, risks, and what is needed to get the project to Green status.
+Generate a comprehensive project status report for the specified retailer's next scheduled Caper cart store deployment, including tasks, risks, and what is needed to get the project to Green status for that specific store.
 
-## Retailer
-**Target Retailer**: $ARGUMENTS
+## Retailer and Store ID
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID - internal Caper ID for next store, ex: prod-clarks-1)
 
 ## Instructions
 
 1. **Research Phase** - Gather information from all available sources:
-   - Search Jira for tickets related to $ARGUMENTS Caper deployment
-   - Search all documentation (Confluence, Google Docs, internal docs) for $ARGUMENTS project information
-   - Search Slack conversations for $ARGUMENTS deployment discussions, updates, and issues
-   - Look for project timelines, milestones, and deployment schedules
-   - Identify all critical risks, blockers, and open issues
+   - Search Jira for tickets related to $ARGUMENTS Caper deployment for the specified store
+   - Search all documentation (Confluence, Google Docs, internal docs) for $ARGUMENTS project information and store-specific details
+   - Search Slack conversations for $ARGUMENTS deployment discussions, updates, and issues related to this specific store
+   - Look for the store ID (second argument) in documentation to find store-specific information
+   - Look for project timelines, milestones, and deployment schedules for this store
+   - Identify all critical risks, blockers, and open issues specific to this store deployment
 
 2. **Analysis Phase** - Understand the current state:
    - Determine the current project status (Green/Yellow/Red)

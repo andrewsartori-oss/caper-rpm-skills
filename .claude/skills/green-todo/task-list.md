@@ -9,7 +9,9 @@ This file contains only the tasks an RPM needs to complete in order to move thei
 ## **CRITICAL** ##
 - This skill is intended to be a short, specific, action-focused list of items to complete.
 - This skill cannot contain any information besides Tasks 1 and 2 
-- This skill must focus on getting the project to green for the next caper deployment at the next scheduled store
+- This skill must focus on getting the project to green for the next caper deployment at the next scheduled store. 
+    - This store must be provided as an argument
+    - The format of the store must be the internal caper ID (ex: prod-clarks-1)
 
 ## Important: SKILL output
 - The green-todo output must be an .md file that must follow this naming convention: green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md 
