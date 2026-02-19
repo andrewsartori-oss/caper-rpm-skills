@@ -20,7 +20,8 @@ This repository contains custom Claude Code skills for generating Caper cart dep
 - `/blindspot [retailer-name] [store-id]` - Identify tasks you've committed to or been assigned but haven't completed or accessed in 24+ hours
 
 #### Launch Readiness Skills
-- `/launch-checklist [retailer-name] [store-id]` - Generate a comprehensive launch readiness assessment with GO/NO-GO recommendation
+- `/launch-checklist [retailer-name] [store-id]` - Validate completion status of all 16 required launch checklist items
+- `/launch-report [retailer-name] [store-id]` - Generate a comprehensive pre-launch readiness assessment with GO/NO-GO recommendation
 - `/launch-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to launch a store
 
 #### Documentation Skills
@@ -161,7 +162,8 @@ Then use any of the skills:
 /get-to-green Clarks prod-clarks-1
 /green-todo HGG prod-hgg-1
 /blindspot Kroger prod-kroger-2
-/launch-checklist Albertsons prod-albertsons-5
+/launch-checklist Clarks prod-clarks-1
+/launch-report Albertsons prod-albertsons-5
 /launch-todo Safeway prod-safeway-2
 /factsheet HGG prod-hgg-1
 /changelog-weekly Clarks prod-clarks-1
@@ -243,7 +245,42 @@ Then use any of the skills:
 ### Launch Readiness Skills
 
 #### `/launch-checklist [retailer-name] [store-id]`
-**Purpose:** Comprehensive launch readiness assessment with GO/NO-GO recommendation
+**Purpose:** Validate completion status of all 16 required launch checklist items
+
+**What it generates:**
+- Launch overview (retailer, store ID, location, target launch date)
+- Status validation for all 16 consolidated launch checklist items:
+  1. Electrical complete & signed off
+  2. FC firmware updated & chargers tested
+  3. All launch carts present (bolted, powered, no syncing issues)
+  4. HW accessories installed
+  5. W&M passed for all launch carts
+  6. 3rd-party certification (if required)
+  7. APs installed & verified per heatmap
+  8. Checkout connectivity validated
+  9. ZBC / beacons tested and passing
+  10. Software & firmware versions aligned
+  11. Store configs validated
+  12. E2E testing completed & issues logged
+  13. Cart placement confirmed
+  14. Store & OTG training completed
+  15. FSR/BA launch staffing plan confirmed
+  16. Marketing complete OR soft-launch documented
+- Evidence and owner for each item
+- Completion percentage and blockers
+- GO/NO-GO/CONDITIONAL GO recommendation
+
+**Output:** `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/launch-checklist [retailer]/`
+
+**Examples:**
+- `/launch-checklist Clarks prod-clarks-1` (specific store)
+- `/launch-checklist Clarks all` (all stores)
+- `/launch-checklist Clarks` (all stores - empty store-id)
+
+---
+
+#### `/launch-report [retailer-name] [store-id]`
+**Purpose:** Comprehensive pre-launch readiness assessment with GO/NO-GO recommendation
 
 **What it generates:**
 - Launch overview (retailer, store ID, location, target launch date)
@@ -253,12 +290,12 @@ Then use any of the skills:
 - Launch team contact information
 - Risk assessment and contingency plans
 
-**Output:** `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/launch-checklist [retailer]/`
+**Output:** `launch-report-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/launch-report [retailer]/`
 
 **Examples:**
-- `/launch-checklist Albertsons prod-albertsons-5` (specific store)
-- `/launch-checklist Albertsons all` (all stores)
-- `/launch-checklist Albertsons` (all stores - empty store-id)
+- `/launch-report Albertsons prod-albertsons-5` (specific store)
+- `/launch-report Albertsons all` (all stores)
+- `/launch-report Albertsons` (all stores - empty store-id)
 
 ---
 
@@ -277,7 +314,7 @@ Then use any of the skills:
 - `/launch-todo Safeway all` (all stores)
 - `/launch-todo Safeway` (all stores - empty store-id)
 
-**Note:** This is a shorter version of launch-checklist - use this for quick action items, use launch-checklist for comprehensive readiness assessment.
+**Note:** This is a shorter version of launch-report - use this for quick action items, use launch-report for comprehensive readiness assessment.
 
 ---
 
