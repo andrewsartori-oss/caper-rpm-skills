@@ -18,23 +18,40 @@ Surface tasks that the RPM has committed to doing or is tasked with doing but ha
 ## Instructions
 
 1. **Research Phase** - Search for stale tasks and commitments:
-   - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
-   - Search Jira for tickets assigned to you related to $ARGUMENTS that haven't been updated in 24+ hours
-   - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
-   - Search Slack for commitments or promises you made about $ARGUMENTS that haven't been followed up on in 24+ hours
-   - Search emails for action items related to $ARGUMENTS that you committed to but haven't addressed in 24+ hours
-   - Search meeting notes and documentation for tasks assigned to you for $ARGUMENTS that are stale (24+ hours)
-   - Look for blocked tickets that require your input or action
-   - Identify follow-ups you promised to stakeholders that haven't been completed
-   - Find status updates you committed to providing but haven't sent
+   - **CRITICAL FILTERING REQUIREMENT**: ONLY include tasks explicitly related to the specified retailer (first argument). EXCLUDE all tasks from other retailers.
 
-2. **Analysis Phase** - Categorize and prioritize blindspots:
-   - Determine which stale tasks are critical to project success
-   - Identify which blindspots could become blockers if not addressed
-   - Assess the risk level of each neglected task (Critical/Medium/Low)
+   - **Retailer Filtering**:
+     - Tasks MUST mention the retailer name (first argument) in the ticket title, description, labels, or related fields
+     - If searching for "Clarks", ONLY include Clarks-related tasks
+     - EXCLUDE tasks for other retailers like Kroger, HGG, Albertsons, etc. even if they are stale
+
+   - **Store Scope**:
+     - If store ID is provided (not "all" or empty): ONLY include tasks for that specific store (ex: prod-clarks-1)
+     - If "all" or empty: Include tasks for ANY store under that retailer banner (prod-clarks-1, prod-clarks-2, etc.)
+
+   - **Search Sources** (filter by retailer in ALL searches):
+     - Search Jira for tickets assigned to you that:
+       - Haven't been updated in 24+ hours AND
+       - Explicitly mention the retailer name (first argument) OR
+       - Include the store ID (if specified) in ticket fields/labels
+     - Search Slack for commitments or promises you made about [retailer-name] that haven't been followed up on in 24+ hours
+     - Search emails for action items related to [retailer-name] that you committed to but haven't addressed in 24+ hours
+     - Search meeting notes and documentation for tasks assigned to you for [retailer-name] that are stale (24+ hours)
+
+   - **What to Look For** (retailer-specific only):
+     - Blocked tickets requiring your input or action for this retailer
+     - Follow-ups you promised to stakeholders about this retailer
+     - Status updates you committed to providing about this retailer
+
+2. **Analysis Phase** - Categorize and prioritize blindspots (retailer-specific only):
+   - **CRITICAL**: Verify ALL tasks in your analysis are for the specified retailer. Remove any tasks from other retailers.
+   - Determine which stale tasks are critical to this retailer's project success
+   - Identify which blindspots could become blockers for this retailer if not addressed
+   - Assess the risk level of each neglected task (Critical/Medium/Low) in context of this retailer's deployment
    - Calculate how overdue each task is (days/hours since last action)
    - Understand why these tasks fell through the cracks (capacity, dependencies, etc.)
-   - Prioritize based on impact to project timeline and stakeholder expectations
+   - Prioritize based on impact to this retailer's project timeline and stakeholder expectations
+   - **FINAL CHECK**: Before generating report, ensure zero tasks from other retailers are included
 
 3. **Report Generation** - Create the blindspot report using this structure:
 
@@ -133,15 +150,27 @@ Use these tools to gather information:
 
 ## Search Strategy
 
-Focus your searches on finding:
-- "assigned to me" + $ARGUMENTS + "updated:>24 hours ago" (Jira)
-- Messages where you said "I will" or "I'll" or "I can" related to $ARGUMENTS (Slack)
-- Your sent emails with "action item" or "I'll follow up" for $ARGUMENTS (Email search)
-- Meeting notes with your name + "owner" or "responsible for" + $ARGUMENTS
-- Any open threads or tickets where someone is waiting for your response
+**CRITICAL**: All searches MUST filter by retailer name to ensure only relevant tasks are included.
+
+Focus your searches on finding (retailer-specific only):
+- Jira: "assigned to me" + "[retailer-name]" + "updated:>24 hours ago"
+  - Example: For Clarks, search: "assigned to me Clarks updated:>24 hours ago"
+  - If store ID provided, also include: "[store-id]" (ex: "prod-clarks-1")
+- Slack: Messages where you said "I will" or "I'll" or "I can" AND mentioned "[retailer-name]"
+  - Example: "I'll follow up" + "Clarks" in the same message thread
+- Email: Your sent emails with "action item" or "I'll follow up" AND "[retailer-name]" mentioned
+- Meeting notes: Your name + "owner" or "responsible for" + "[retailer-name]"
+- Open threads: Tickets/threads where someone is waiting for your response about [retailer-name]
+
+**Verification**:
+- After gathering results, verify each task explicitly mentions the retailer name
+- Remove any tasks that are generic RPM work or related to other retailers
+- If searching for "Clarks", the final list should contain ZERO Kroger, HGG, or other retailer tasks
 
 ## Output Requirements
 
+- **CRITICAL**: The report must ONLY include tasks for the specified retailer (first argument)
+- If report includes tasks from other retailers, that is an ERROR - remove them
 - The report must be specific and actionable
 - All [] brackets must be filled with real data
 - Include specific times (not just dates) when tasks went stale
@@ -150,6 +179,7 @@ Focus your searches on finding:
 - Calculate exact hours overdue for each task
 - Be honest about capacity and why tasks fell through the cracks
 - Prioritize immediate actions for today
+- Each task in the report should clearly mention the retailer name to demonstrate relevance
 - **MUST create a markdown file** - Do not just output to console
 - **File naming convention**: `blindspot-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
   - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
