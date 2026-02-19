@@ -1,39 +1,41 @@
 ---
 name: launch-checklist
-description: Generate a comprehensive launch readiness assessment for a specific retailer's Caper cart deployment
-argument-hint: [retailer-name] [target-launch-date]
+description: Generate a comprehensive launch readiness assessment for a specific retailer's next scheduled Caper cart store deployment
+argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
 ---
 
 # Launch Readiness Checklist Generator
 
-Generate a comprehensive launch readiness assessment for the specified retailer's Caper cart deployment. Given a target launch date, assess readiness across all workstreams, check for missing artifacts, flag unresolved dependencies, and generate a launch go/no-go recommendation with evidence.
+Generate a clean, concise launch readiness assessment for the specified retailer's next scheduled Caper cart store deployment. Assess readiness across all workstreams, check for missing artifacts, flag unresolved dependencies, and generate a launch go/no-go recommendation with evidence.
 
-## Retailer and Launch Date
-**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is target launch date)
+## Retailer and Store ID
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID - internal Caper ID for next store, ex: prod-hgg-1)
 
 ## Instructions
 
 1. **Research Phase** - Gather information from all available sources:
-   - Search Jira for tickets related to $ARGUMENTS Caper deployment and launch preparation
-   - Search all documentation (Confluence, Google Docs, internal docs) for $ARGUMENTS launch plans, test results, and readiness information
-   - Search Slack conversations for $ARGUMENTS launch discussions, updates, blockers, and go/no-go conversations
-   - Look for launch runbooks, test plans, training materials, and support documentation
+   - Search Jira for tickets related to $ARGUMENTS Caper deployment and launch preparation for the specified store
+   - Search all documentation (Confluence, Google Docs, internal docs) for $ARGUMENTS launch plans, test results, and readiness information specific to this store deployment
+   - Search Slack conversations for $ARGUMENTS launch discussions, updates, blockers, and go/no-go conversations about this store
+   - Look for the store ID (second argument) in documentation to find store-specific information
+   - Look for launch runbooks, test plans, training materials, and support documentation for this store
    - Identify all workstream owners and their completion status
    - Review recent testing results and any identified issues
-   - Find all open dependencies and blockers
+   - Find all open dependencies and blockers specific to this store deployment
    - Look for risk assessments and mitigation plans
+   - Determine the target launch date for this store from documentation
 
-2. **Analysis Phase** - Assess launch readiness:
-   - Determine overall launch readiness status (GO / NO-GO / CONDITIONAL GO)
-   - Assess each workstream's readiness level and completion percentage
-   - Identify all missing or incomplete critical artifacts
-   - Flag all unresolved dependencies (internal and external)
-   - Categorize risks by severity and likelihood
-   - Evaluate contingency and rollback plans
-   - Calculate days remaining until target launch date
-   - Review launch team contact information and roles
+2. **Analysis Phase** - Assess launch readiness for the next scheduled store:
+   - Determine overall launch readiness status for this specific store (GO / NO-GO / CONDITIONAL GO)
+   - Assess each workstream's readiness level and completion percentage for this store
+   - Identify all missing or incomplete critical artifacts needed for this store launch
+   - Flag all unresolved dependencies (internal and external) blocking this store
+   - Categorize risks by severity and likelihood specific to this store deployment
+   - Evaluate contingency and rollback plans for this store
+   - Calculate days remaining until target launch date (if found)
+   - Review launch team contact information and roles for this store
 
 3. **Report Generation** - Create the report using this structure:
 
@@ -43,10 +45,12 @@ Reference the task-list.md file in this directory for the complete report templa
 
 #### 1. Launch Overview
 - **Retailer Name**: Name of the retailer
-- **Target Launch Date**: Specific date provided by user or found in research
+- **Store ID**: Internal Caper store ID (second argument provided by user, ex: prod-hgg-1)
+- **Store Location**: City, State or address if available from research
+- **Target Launch Date**: Specific date found in research for this store
 - **Days Until Launch**: Calculate based on current date
 - **Current Launch Readiness Status**: GO / NO-GO / CONDITIONAL GO
-- **Executive Summary**: High-level overview of overall launch readiness
+- **Executive Summary**: High-level overview of launch readiness for this specific store
 
 #### 2. Launch Go/No-Go Recommendation
 - **Recommendation**: Clear GO / NO-GO / CONDITIONAL GO statement
@@ -180,8 +184,8 @@ Evaluate against GO/NO-GO/CONDITIONAL GO criteria:
 **FINAL RECOMMENDATION**: Clear statement with detailed justification
 
 4. **Output Format** - Save the report as a markdown file:
-   - Create a markdown file named: `LAUNCH-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - The file name includes the time when it was created
+   - Create a markdown file named: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+   - The file name includes the store ID and the time when it was created
    - This allows multiple files to be created on the same day without deleting previous ones
    - Save the file in the "launch-checklist [retailer]" folder on the Desktop
    - Format as a well-structured markdown document with proper headings, lists, and checkboxes
@@ -197,8 +201,8 @@ Evaluate against GO/NO-GO/CONDITIONAL GO criteria:
    - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/launch-checklist [retailer]"`
    - If it exists, use the existing directory (do NOT create another one)
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then save the file to: `/Users/andrewsartori/Desktop/launch-checklist [retailer]/LAUNCH-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - Example: For HGG on Feb 15, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/launch-checklist HGG/LAUNCH-HGG-02-15-2026-2000EST.md`
+   - Then save the file to: `/Users/andrewsartori/Desktop/launch-checklist [retailer]/LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+   - Example: For HGG store prod-hgg-1 on Feb 15, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/launch-checklist HGG/LAUNCH-HGG-prod-hgg-1-02-15-2026-2000EST.md`
    - Content: Complete formatted report in markdown
    - After writing the file, inform the user of the exact file location
 
@@ -217,17 +221,20 @@ Use these tools to gather information:
 
 ## Output Requirements
 
-- The report must be comprehensive and actionable
+- The report must be clean, concise, and actionable
+- Focus on the next scheduled store deployment for the specified retailer
 - All [] brackets must be filled with real data from research
 - Include specific dates, not placeholders like [DATE]
-- Provide evidence-based launch readiness assessment
+- Provide evidence-based launch readiness assessment for this specific store
 - Include clear GO/NO-GO recommendation with justification
-- List all missing artifacts and unresolved dependencies
+- List all missing artifacts and unresolved dependencies specific to this store
 - Include specific action items with owners when possible
 - Be honest about risks and readiness gaps
 - **MUST create a markdown file** - Do not just output to console
-- **File naming convention**: `LAUNCH-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+- **File naming convention**: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+  - Store ID: Internal Caper store ID (ex: prod-hgg-1)
   - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
+  - Example: `LAUNCH-HGG-prod-hgg-1-02-15-2026-2000EST.md`
   - This allows multiple files per day without deleting previous versions
 - **Folder naming convention**: `launch-checklist [retailer]`
 - **Save location**: `/Users/andrewsartori/Desktop/launch-checklist [retailer]/`
@@ -238,11 +245,13 @@ Use these tools to gather information:
 
 ## Critical Success Factors
 
+- **Store-Specific**: Focus on the next scheduled store deployment (store ID provided in arguments)
 - **Evidence-Based**: Every assessment must be backed by specific evidence from research
 - **Actionable**: Clear next steps for every identified issue
 - **Honest**: Don't sugarcoat readiness issues - better to identify problems now
 - **Complete**: Cover all workstreams and artifact categories thoroughly
-- **Specific**: Use actual dates, names, ticket numbers, and concrete details
+- **Specific**: Use actual dates, names, ticket numbers, store IDs, and concrete details
 - **Decision-Ready**: Provide clear GO/NO-GO recommendation with confidence level
+- **Clean & Concise**: Focus on essential information without unnecessary detail
 
-Generate the complete launch readiness checklist for **$ARGUMENTS** and save it as a markdown file in a Desktop folder named "launch-checklist [retailer]".
+Generate the complete launch readiness checklist for **$ARGUMENTS** (retailer and store ID) and save it as a markdown file in a Desktop folder named "launch-checklist [retailer]".

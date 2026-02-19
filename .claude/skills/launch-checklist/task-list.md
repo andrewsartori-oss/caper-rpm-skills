@@ -1,11 +1,15 @@
 # Launch Readiness: Tasks
 
 ## Skill's Purpose
-This file contains the tasks and assessment criteria for evaluating launch readiness for a Caper deployment. Given a target launch date, this skill assesses readiness across all workstreams, checks for missing artifacts, flags unresolved dependencies, and generates a launch go/no-go recommendation with evidence.
+This file contains the tasks and assessment criteria for evaluating launch readiness for a Caper deployment. This skill produces a clean, concise launch checklist for the next scheduled store to deploy Caper carts for a specific retailer. It assesses readiness across all workstreams, checks for missing artifacts, flags unresolved dependencies, and generates a launch go/no-go recommendation with evidence.
+
+## ***CRITICAL*** ##
+- This skill must focus on the next scheduled store deployment for the specified retailer
+- The store ID must be the internal Caper ID (ex: prod-hgg-1, prod-hgg-2, etc.)
 
 ## Important: SKILL output
-- The launch checklist output must be an .md file that must follow this naming convention: LAUNCH-[retailer]-[MM]-[DD]-[YYYY]-[Time].md
-    - The file name includes the time when it was created, thus there can be multiple files created on the same day without having to delete a previous one.
+- The launch checklist output must be an .md file that must follow this naming convention: LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md
+    - The file name includes the store ID and the time when it was created, thus there can be multiple files created on the same day without having to delete a previous one.
     - Time should be created as 24 hour clock with timezone indicated (ex: 8:00pmEST = 2000EST)
 - The file directory where these files are saved must follow this naming convention: launch-checklist [retailer-name].
     - If the file directory already exists, do not create another one, just save the file to that directory.
@@ -13,6 +17,7 @@ This file contains the tasks and assessment criteria for evaluating launch readi
 ---
 
 ## Retailer: [to be determined by the user]
+## Store ID: [to be determined by the user - internal Caper ID for next store]
 
 ---
 
@@ -20,10 +25,12 @@ This file contains the tasks and assessment criteria for evaluating launch readi
 
 1. Launch Overview
     - Retailer Name: [Retailer Name]
+    - Store ID: [Internal Caper store ID - ex: prod-hgg-1]
+    - Store Location: [City, State or address if available]
     - Target Launch Date: [MM/DD/YYYY]
     - Days Until Launch: [Number]
     - Current Launch Readiness Status: [GO / NO-GO / CONDITIONAL GO]
-    - Executive Summary: [High level overview of launch readiness]
+    - Executive Summary: [High level overview of launch readiness for this store]
 
 2. Launch Go/No-Go Recommendation
     - **Recommendation**: [GO / NO-GO / CONDITIONAL GO]
