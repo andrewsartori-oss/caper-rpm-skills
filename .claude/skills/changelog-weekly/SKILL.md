@@ -1,7 +1,7 @@
 ---
 name: changelog-weekly
-description: Generate a weekly changelog documenting project changes for a specific retailer's Caper cart deployment
-argument-hint: [retailer-name]
+description: Generate a weekly changelog documenting project changes for a specific retailer's Caper cart store deployment
+argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
 ---
@@ -10,14 +10,18 @@ agent: general-purpose
 
 Generate a weekly changelog documenting what has changed in the specified retailer's Caper cart deployment project over the past 7 days.
 
-## Retailer
-**Target Retailer**: $ARGUMENTS
+## Retailer and Store ID
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID)
+- **Store ID Format**: Internal Caper store ID (ex: prod-clarks-1)
+- **All Stores Option**: If second argument is "all" or left empty, search across all stores for that retailer
 
 ## Instructions
 
 1. **Research Phase** - Gather information about changes from the past week:
    - Calculate the time period: (Current Date - 7 days) to Current Date
+   - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for tickets created, updated, or closed in the past week related to $ARGUMENTS
+   - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
    - Search Slack conversations from the past 7 days for $ARGUMENTS deployment updates
    - Search documentation (Confluence, Google Docs) for recent changes to $ARGUMENTS project
    - Look for timeline/schedule updates, scope changes, or deployment date changes

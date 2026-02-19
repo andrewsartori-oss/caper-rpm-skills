@@ -7,15 +7,17 @@ This repository contains custom Claude Code skills for generating Caper cart dep
 #### Project Status & Planning Skills
 - `/get-to-green [retailer-name] [store-id]` - Generate a comprehensive status report for moving a specific store deployment to Green status
 - `/green-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to move a specific store deployment to Green status
-- `/blindspot [retailer-name]` - Identify tasks you've committed to or been assigned but haven't completed or accessed in 24+ hours
+- `/blindspot [retailer-name] [store-id]` - Identify tasks you've committed to or been assigned but haven't completed or accessed in 24+ hours
 
 #### Launch Readiness Skills
 - `/launch-checklist [retailer-name] [store-id]` - Generate a comprehensive launch readiness assessment with GO/NO-GO recommendation for a specific store
 - `/launch-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to launch a specific store
 
 #### Documentation Skills
-- `/factsheet [retailer-name]` - Generate a comprehensive factsheet with all key facts about a retailer's deployment
-- `/changelog-weekly [retailer-name]` - Generate a weekly changelog documenting project changes
+- `/factsheet [retailer-name] [store-id]` - Generate a comprehensive factsheet with all key facts about a retailer's deployment
+- `/changelog-weekly [retailer-name] [store-id]` - Generate a weekly changelog documenting project changes
+
+**Note:** For all skills, if you want to search across all stores for a retailer, use "all" as the store-id or leave it empty.
 
 ## ***** SETUP: Claude Code *****
 
@@ -150,15 +152,20 @@ Then use any of the skills:
 # Project status and task management
 /get-to-green HGG prod-hgg-1
 /green-todo Clarks prod-clarks-1
-/blindspot Kroger
+/blindspot Kroger prod-kroger-2
 
 # Launch readiness
 /launch-checklist Albertsons prod-albertsons-5
 /launch-todo Safeway prod-safeway-2
 
 # Documentation
-/factsheet HGG
-/changelog-weekly Kroger
+/factsheet HGG prod-hgg-1
+/changelog-weekly Kroger prod-kroger-2
+
+# Search across all stores (use "all" or leave store-id empty)
+/factsheet Clarks all
+/changelog-weekly HGG
+/blindspot Kroger all
 ```
 
 ## Skill Details
@@ -197,7 +204,7 @@ Then use any of the skills:
 
 ---
 
-#### `/blindspot [retailer-name]`
+#### `/blindspot [retailer-name] [store-id]`
 **Purpose:** Identify tasks you've committed to but haven't completed or accessed in 24+ hours
 
 **What it generates:**
@@ -209,7 +216,10 @@ Then use any of the skills:
 
 **Output:** `blindspot-[retailer]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/blindspot [retailer]/`
 
-**Example:** `/blindspot Kroger`
+**Examples:**
+- `/blindspot Kroger prod-kroger-2` (specific store)
+- `/blindspot Kroger all` (all stores)
+- `/blindspot Kroger` (all stores - store-id empty)
 
 ---
 
@@ -250,7 +260,7 @@ Then use any of the skills:
 
 ### Documentation Skills
 
-#### `/factsheet [retailer-name]`
+#### `/factsheet [retailer-name] [store-id]`
 **Purpose:** Comprehensive factsheet with all key facts about a retailer's deployment
 
 **What it generates:**
@@ -259,11 +269,14 @@ Then use any of the skills:
 
 **Output:** `factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/factsheet [retailer]/`
 
-**Example:** `/factsheet HGG`
+**Examples:**
+- `/factsheet HGG prod-hgg-1` (specific store)
+- `/factsheet HGG all` (all stores)
+- `/factsheet HGG` (all stores - store-id empty)
 
 ---
 
-#### `/changelog-weekly [retailer-name]`
+#### `/changelog-weekly [retailer-name] [store-id]`
 **Purpose:** Weekly changelog documenting project changes
 
 **What it generates:**
@@ -272,7 +285,10 @@ Then use any of the skills:
 
 **Output:** `changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/changelog-weekly [retailer]/`
 
-**Example:** `/changelog-weekly Kroger`
+**Examples:**
+- `/changelog-weekly Kroger prod-kroger-2` (specific store)
+- `/changelog-weekly Kroger all` (all stores)
+- `/changelog-weekly Kroger` (all stores - store-id empty)
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: blindspot
-description: Identify tasks committed to or assigned but not completed or accessed in 24+ hours for a specific retailer's Caper cart deployment
-argument-hint: [retailer-name]
+description: Identify tasks committed to or assigned but not completed or accessed in 24+ hours for a specific retailer's Caper cart store deployment
+argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
 ---
@@ -10,13 +10,17 @@ agent: general-purpose
 
 Surface tasks that the RPM has committed to doing or is tasked with doing but hasn't completed or accessed in the last 24 hours for the specified retailer's Caper cart deployment.
 
-## Retailer
-**Target Retailer**: $ARGUMENTS
+## Retailer and Store ID
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID)
+- **Store ID Format**: Internal Caper store ID (ex: prod-clarks-1)
+- **All Stores Option**: If second argument is "all" or left empty, search across all stores for that retailer
 
 ## Instructions
 
 1. **Research Phase** - Search for stale tasks and commitments:
+   - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for tickets assigned to you related to $ARGUMENTS that haven't been updated in 24+ hours
+   - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
    - Search Slack for commitments or promises you made about $ARGUMENTS that haven't been followed up on in 24+ hours
    - Search emails for action items related to $ARGUMENTS that you committed to but haven't addressed in 24+ hours
    - Search meeting notes and documentation for tasks assigned to you for $ARGUMENTS that are stale (24+ hours)

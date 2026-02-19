@@ -1,7 +1,7 @@
 ---
 name: factsheet
-description: Generate a comprehensive factsheet with all key facts about a specific retailer's Caper cart deployment
-argument-hint: [retailer-name]
+description: Generate a comprehensive factsheet with all key facts about a specific retailer's Caper cart store deployment
+argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
 ---
@@ -10,13 +10,17 @@ agent: general-purpose
 
 Generate a comprehensive factsheet documenting all important facts related to the specified retailer's Caper cart deployment project in one centralized document.
 
-## Retailer
-**Target Retailer**: $ARGUMENTS
+## Retailer and Store ID
+**Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID)
+- **Store ID Format**: Internal Caper store ID (ex: prod-clarks-1)
+- **All Stores Option**: If second argument is "all" or left empty, search across all stores for that retailer
 
 ## Instructions
 
 1. **Research Phase** - Gather comprehensive information from all available sources:
+   - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for all tickets related to $ARGUMENTS Caper deployment
+   - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
    - Search all documentation (Confluence, Google Docs, internal docs) for $ARGUMENTS project information
    - Search Slack conversations for $ARGUMENTS deployment details and updates
    - Look for hardware specifications, store details, integration information
