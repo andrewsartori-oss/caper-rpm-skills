@@ -6,6 +6,9 @@ This file contains the tasks and risks associated with a caper deployment, inclu
 - Yellow Status: Project has risks that may delay scheduled deployment
 - Red Status: Project has serious risks that will delay scheduled deployment
 
+## ***CRITICAL*** ##
+- This skill must focus on getting the project to green for the next caper deployment at the next scheduled store
+
 ## Important: SKILL output
 - The get-to-green output must be an .md file that must follow this naming convention: G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md 
     - The file name includes the time when it was created, thus there can be multiple files created on the same day without having to delete a previous one.

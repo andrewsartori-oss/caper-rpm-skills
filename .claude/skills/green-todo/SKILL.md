@@ -48,7 +48,7 @@ Reference the task-list.md file in this directory for the complete template stru
 - **Target**: Green by [specific date based on research]
 
 #### 2. Green Status Checklist (Must Have By [DATE])
-- **Critical Path Items to GREEN**: List ONLY the critical items that must be completed to achieve Green status
+- **Critical Path Items to GREEN**: List ONLY the critical items that must be completed to achieve Green status (list as many as necessary to move project to status GREEN)
   - For each item: Describe specific, actionable steps that must be taken
   - Include owners when possible
   - Include target completion dates

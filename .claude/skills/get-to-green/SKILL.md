@@ -39,12 +39,12 @@ Reference the task-list.md file in this directory for the complete report templa
 - **Project Executive Summary**: High-level overview of the entire project to date
 - **Current Project Status**: Green, Yellow, or Red (with justification)
 - **Target**: Green by [specific date based on research]
-- **Status Change**: Historical context of risks, issues, and decisions that have changed the project's status up to the present date
+- **Status Change**: Historical Risks, Issues, and Decisions that have changed the project's status up to the present date
 
-#### 2. Green Status Checklist
-- **Critical Path Items to GREEN**: List all items that must be completed to achieve Green status
+#### 2. Green Status Checklist (Must Have By [DATE])
+- **Critical Path Items to GREEN**: List all items that must be completed to achieve Green status (list as many as necessary to move project to status GREEN)
   - For each item: Describe specific actions that must be taken
-- **Risk Management**: List all risks preventing the project from moving to Green status
+- **Risk Management**: List all risks preventing the project from moving to Green status (list the risks preventing the project from moving to status GREEN)
   - For each risk: Describe specific actions that must be taken
 
 #### 3. Complete Risk Analysis
@@ -52,23 +52,23 @@ Reference the task-list.md file in this directory for the complete report templa
 For each risk category, provide detailed information:
 
 **Critical Risks (Week [DATE])**
-- Risk Name
-- Current Status
-- Why Critical
-- What Could Go Wrong
-- Mitigation Actions (This Week)
-- Success Criteria for Green
+1. Risk: Name
+2. Risk: Current Status
+3. Risk: Why Critical
+4. Risk: What Could Go Wrong
+5. Risk: Mitigation Actions (This Week)
+6. Risk: Success Criteria for Green
 
 **Medium Risks (Week [DATE])**
-- Risk Name
-- Current Status
-- Why This Matters
-- Mitigations
+1. Risk: Name
+2. Risk: Current Status
+3. Risk: Why This Matters
+4. Risk: Mitigations
 
 **Future Risks (Week [DATE])**
-- Risk Name
-- Impact
-- Mitigation
+1. Risk: Name
+2. Risk: Impact
+3. Risk: Mitigation
 
 #### 4. "Going Red" Contingency Plans
 Create contingency plans for scenarios that could push the project to Red status:
