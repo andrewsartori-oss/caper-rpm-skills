@@ -96,14 +96,35 @@ For each item, provide:
 - **Unknown**: [count] (🔍)
 - **Completion Percentage**: [X%]
 
-#### 4. Blockers & Critical Items
+#### 4. All 16 Checklist Items Status
+
+List all 16 items with their current status indicator:
+
+1. ✅/⚠️/❌/🔍 **Electrical complete & signed off**
+2. ✅/⚠️/❌/🔍 **FC firmware updated & chargers tested**
+3. ✅/⚠️/❌/🔍 **All launch carts present**
+4. ✅/⚠️/❌/🔍 **HW accessories installed**
+5. ✅/⚠️/❌/🔍 **W&M passed for all launch carts**
+6. ✅/⚠️/❌/🔍 **3rd-party certification** (if required)
+7. ✅/⚠️/❌/🔍 **APs installed & verified per heatmap**
+8. ✅/⚠️/❌/🔍 **Checkout connectivity validated**
+9. ✅/⚠️/❌/🔍 **ZBC / beacons tested and passing**
+10. ✅/⚠️/❌/🔍 **Software & firmware versions aligned**
+11. ✅/⚠️/❌/🔍 **Store configs validated**
+12. ✅/⚠️/❌/🔍 **E2E testing completed & issues logged**
+13. ✅/⚠️/❌/🔍 **Cart placement confirmed**
+14. ✅/⚠️/❌/🔍 **Store & OTG training completed**
+15. ✅/⚠️/❌/🔍 **FSR/BA launch staffing plan confirmed**
+16. ✅/⚠️/❌/🔍 **Marketing complete OR documented**
+
+#### 5. Blockers & Critical Items
 List any items that are:
 - Not started or in progress with launch date approaching
 - Have blockers preventing completion
 - Are dependencies for other items
 - Are high-risk if not completed
 
-#### 5. Go/No-Go Recommendation
+#### 6. Go/No-Go Recommendation
 - **Recommendation**: GO / NO-GO / CONDITIONAL GO
 - **Justification**: Based on checklist completion status
 - **Conditions** (if CONDITIONAL GO): What must be completed before launch
