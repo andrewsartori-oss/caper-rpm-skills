@@ -8,10 +8,10 @@ This file contains the tasks and assessment criteria for evaluating launch readi
 - The store ID must be the internal Caper ID (ex: prod-hgg-1, prod-hgg-2, etc.)
 
 ## Important: SKILL output
-- The launch checklist output must be an .md file that must follow this naming convention: LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md
+- The launch report output must be an .md file that must follow this naming convention: LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md
     - The file name includes the store ID and the time when it was created, thus there can be multiple files created on the same day without having to delete a previous one.
     - Time should be created as 24 hour clock with timezone indicated (ex: 8:00pmEST = 2000EST)
-- The file directory where these files are saved must follow this naming convention: launch-checklist [retailer-name].
+- The file directory where these files are saved must follow this naming convention: launch-report [retailer-name].
     - If the file directory already exists, do not create another one, just save the file to that directory.
 
 ---
