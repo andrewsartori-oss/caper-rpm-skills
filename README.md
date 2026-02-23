@@ -28,7 +28,10 @@ This repository contains custom Claude Code skills for generating Caper cart dep
 - `/factsheet [retailer-name] [store-id]` - Generate a comprehensive factsheet with all key facts about a retailer's deployment
 - `/changelog-weekly [retailer-name] [store-id]` - Generate a weekly changelog documenting project changes
 
-## ***** SETUP: Claude Code *****
+---
+---
+
+## ***** CLAUDE CODE SETUP *****
 
 ### Prerequisites: Claude Code Setup
 
