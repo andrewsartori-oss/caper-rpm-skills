@@ -116,6 +116,7 @@ Use these tools to gather information:
 
 ## Output Requirements
 
+- **The output file must not exceed 5,000 words**
 - The report must be comprehensive and actionable
 - All [] brackets must be filled with real data
 - Include specific dates, not placeholders like [DATE]

@@ -96,6 +96,7 @@ Use these tools to gather information:
 
 ## Output Requirements
 
+- **The output file must not exceed 5,000 words**
 - **CRITICAL**: Keep the changelog BRIEF and FOCUSED on changes from the past 7 days only
 - This is a summary of changes - NOT a comprehensive project report
 - All [] brackets must be filled with real data

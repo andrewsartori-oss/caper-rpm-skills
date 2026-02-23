@@ -94,6 +94,7 @@ Use these tools to gather information:
 
 ## Output Requirements
 
+- **The output file must not exceed 5,000 words**
 - **CRITICAL**: The output can ONLY contain Tasks 1 and 2
 - **CRITICAL**: Keep the task list SHORT, SPECIFIC, and ACTION-FOCUSED
 - This is NOT a comprehensive launch readiness report - focus ONLY on critical items to launch this store

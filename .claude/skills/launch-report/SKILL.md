@@ -224,6 +224,7 @@ Use these tools to gather information:
 
 ## Output Requirements
 
+- **The output file must not exceed 5,000 words**
 - The report must be clean, concise, and actionable
 - Focus on the next scheduled store deployment for the specified retailer
 - All [] brackets must be filled with real data from research

@@ -148,6 +148,7 @@ Use these tools to gather information:
 
 ## Output Requirements
 
+- **The output file must not exceed 10,000 words**
 - The factsheet must be comprehensive and include all 10 categories
 - All questions in the task-list.md must be addressed
 - Replace ALL [] placeholders with actual data

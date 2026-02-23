@@ -169,6 +169,7 @@ Focus your searches on finding (retailer-specific only):
 
 ## Output Requirements
 
+- **The output file must not exceed 5,000 words**
 - **CRITICAL**: The report must ONLY include tasks for the specified retailer (first argument)
 - If report includes tasks from other retailers, that is an ERROR - remove them
 - The report must be specific and actionable

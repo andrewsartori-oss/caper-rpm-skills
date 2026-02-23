@@ -172,6 +172,7 @@ For each of the 16 checklist items, search for evidence:
 
 ## Output Requirements
 
+- **The output file must not exceed 5,000 words**
 - The report must validate ALL 16 checklist items
 - Each item must have a clear status (✅/⚠️/❌/🔍)
 - All [] brackets must be filled with real data
