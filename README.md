@@ -187,8 +187,10 @@ Then use any of the skills:
 /blindspot Kroger
 /factsheet HGG
 ```
+---
+---
 
-## Skill Details
+## ***** SKILL DETAILS *****
 
 ### Project Status & Planning Skills
 
