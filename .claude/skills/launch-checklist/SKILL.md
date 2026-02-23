@@ -12,8 +12,12 @@ Validate the completion status of all required launch checklist items for the sp
 
 ## Retailer and Store ID
 **Target Retailer**: $ARGUMENTS (first argument is retailer name, second argument is store ID)
-- **Store ID Format**: Internal Caper store ID (ex: prod-clarks-1)
+- **Store ID Formats Accepted** (any of these three):
+  1. **Caper internal store ID** (ex: allegiance-prod-1, prod-clarks-1, prod-hgg-1)
+  2. **Retailer store number/ID** (ex: 530, 1234)
+  3. **Store/location name** (ex: hastings-on-hudson, times-square)
 - **All Stores Option**: If second argument is "all" or left empty, search across all stores for that retailer
+- **Store ID Resolution**: If a non-internal format is provided, resolve it to the internal Caper ID before proceeding
 
 ## Consolidated Launch Checklist Items
 
@@ -37,6 +41,15 @@ These 16 items MUST be completed for the store to launch:
 16. **Marketing complete OR documented** - Arrival & installation complete OR soft‑launch decision documented (if launching without full signage)
 
 ## Instructions
+
+0. **Store ID Resolution Phase** (if needed):
+   - If the store ID argument is NOT in the internal Caper format (doesn't match pattern like "allegiance-prod-1" or "prod-clarks-1"):
+     - Search Glean/Jira/Confluence for the store ID mapping
+     - Look for documents containing both the retailer name and the provided store identifier (retailer store number or location name)
+     - Find the corresponding internal Caper store ID (format: [retailer]-prod-[number] or allegiance-prod-[number])
+     - Use this resolved internal ID for all subsequent searches
+   - If store ID is "all" or empty, skip resolution and search across all stores
+   - If already in internal format, proceed directly to Research Phase
 
 1. **Research Phase** - Gather evidence for each checklist item:
    - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
