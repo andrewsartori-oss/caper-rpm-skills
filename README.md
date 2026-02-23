@@ -118,23 +118,27 @@ If any step errors out (VPN, Gohan, or Claude itself), you can:
 
 ## ***** SETUP: Install these Caper RPM Skills for Your Use *****
 
-#### 1. Clone this repository
+### Step 1: Clone this repository to your machine
+
+This downloads the skills to your local machine.
+
+Open Terminal and run:
 
 ```bash
 cd ~/
 git clone git@github.com:andrewsartori-oss/caper-rpm-skills.git
-cd caper-rpm-skills
 ```
 
-#### 2. Configure Glean MCP Permissions
+### Step 2: Add Glean permissions
 
-These skills use Instacart's Glean search system. You need to configure the Glean MCP server in your Claude Code settings.
+These skills use Instacart's Glean search system to find retailer information from Jira, Confluence, Google Docs, and Slack. You need to give Claude permission to use Glean.
 
-**Add Glean MCP permissions:**
+Create a settings file with the required permissions:
 
-Create or edit your `.claude/settings.local.json` file:
-
-```json
+```bash
+cd ~/caper-rpm-skills
+mkdir -p .claude
+cat > .claude/settings.local.json << 'EOF'
 {
   "permissions": {
     "allow": [
@@ -144,19 +148,19 @@ Create or edit your `.claude/settings.local.json` file:
     ]
   }
 }
+EOF
 ```
 
-**Note:** The `.claude/settings.local.json` file is gitignored (personal settings only). Each team member needs to create their own.
+**Note:** This `.claude/settings.local.json` file is gitignored (personal settings only). Each team member needs to create their own.
 
-#### 3. Start using the skills
+### Step 3: Start Claude and use the skills
 
-From this directory, run Claude Code:
+Navigate to the repository folder and start Claude:
 
 ```bash
+cd ~/caper-rpm-skills
 claude
 ```
-
-Or if using the VS Code extension, open this folder in VS Code.
 
 Then use any of the skills:
 
