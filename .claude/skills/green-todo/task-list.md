@@ -8,10 +8,15 @@ This file contains only the tasks an RPM needs to complete in order to move thei
 
 ## **CRITICAL** ##
 - This skill is intended to be a short, specific, action-focused list of items to complete.
-- This skill cannot contain any information besides Tasks 1 and 2 
-- This skill must focus on getting the project to green for the next caper deployment at the next scheduled store. 
+- This skill cannot contain any information besides Tasks 1 and 2
+- This skill must focus on getting the project to green for the next caper deployment at the next scheduled store.
     - This store must be provided as an argument
-    - The format of the store must be the internal caper ID (ex: prod-clarks-1)
+    - The store ID can be provided in THREE formats:
+      1. **Caper internal store ID** (ex: allegiance-prod-1, prod-clarks-1, prod-hgg-1)
+      2. **Retailer store number/ID** (ex: 530, 1234)
+      3. **Store/location name** (ex: hastings-on-hudson, times-square)
+    - If store ID is "all" or empty, search across all stores for that retailer
+    - If a non-internal format is provided, resolve it to the internal Caper ID first before searching
 
 ## Important: SKILL output
 - The green-todo output must be an .md file that must follow this naming convention: green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md 
@@ -24,6 +29,7 @@ This file contains only the tasks an RPM needs to complete in order to move thei
 ---
 
 ## Retailer: [to be determined by the user]
+## Store ID: [to be determined by the user - can be Caper internal ID, retailer store number, or location name, or "all"]
 
 ---
 

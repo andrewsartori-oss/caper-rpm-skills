@@ -5,7 +5,12 @@ This file contains the tasks and assessment criteria for evaluating launch readi
 
 ## ***CRITICAL*** ##
 - This skill must focus on the next scheduled store deployment for the specified retailer
-- The store ID must be the internal Caper ID (ex: prod-hgg-1, prod-hgg-2, etc.)
+- The store ID can be provided in THREE formats:
+  1. **Caper internal store ID** (ex: allegiance-prod-1, prod-clarks-1, prod-hgg-1)
+  2. **Retailer store number/ID** (ex: 530, 1234)
+  3. **Store/location name** (ex: hastings-on-hudson, times-square)
+- If store ID is "all" or empty, search across all stores for that retailer
+- If a non-internal format is provided, resolve it to the internal Caper ID first before searching
 
 ## Important: SKILL output
 - The launch report output must be an .md file that must follow this naming convention: LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md
@@ -18,7 +23,7 @@ This file contains the tasks and assessment criteria for evaluating launch readi
 ---
 
 ## Retailer: [to be determined by the user]
-## Store ID: [to be determined by the user - internal Caper ID for next store]
+## Store ID: [to be determined by the user - can be Caper internal ID, retailer store number, or location name, or "all"]
 
 ---
 

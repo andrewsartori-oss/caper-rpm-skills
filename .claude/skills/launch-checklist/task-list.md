@@ -10,8 +10,12 @@ This file contains the 16 consolidated launch checklist items that MUST be valid
 - This skill validates ALL 16 required launch checklist items
 - Each item must have evidence of completion or clear blockers identified
 - The skill generates a GO/NO-GO/CONDITIONAL GO recommendation based on completion status
-- The store ID must be the internal Caper ID (ex: prod-hgg-1, prod-clarks-1, etc.)
+- The store ID can be provided in THREE formats:
+  1. **Caper internal store ID** (ex: allegiance-prod-1, prod-clarks-1, prod-hgg-1)
+  2. **Retailer store number/ID** (ex: 530, 1234)
+  3. **Store/location name** (ex: hastings-on-hudson, times-square)
 - If store ID is "all" or empty, validate across all stores for that retailer
+- If a non-internal format is provided, resolve it to the internal Caper ID first before searching
 
 ## Important: SKILL output
 - The launch-checklist output must be an .md file that must follow this naming convention: launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md
@@ -24,7 +28,7 @@ This file contains the 16 consolidated launch checklist items that MUST be valid
 ---
 
 ## Retailer: [to be determined by the user]
-## Store ID: [to be determined by the user - internal Caper ID or "all"]
+## Store ID: [to be determined by the user - can be Caper internal ID, retailer store number, or location name, or "all"]
 
 ---
 

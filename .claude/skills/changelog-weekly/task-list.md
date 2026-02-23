@@ -11,8 +11,14 @@ This file contains the the tasks to be completed by the changelog-weekly SKILL. 
 - New/Updated Project Scope
 
 ## **CRITICAL** ##
-- This skill must present a brief overview of each of the changes. 
+- This skill must present a brief overview of each of the changes.
 - If there are no changes for a task listed beneath Task 2. Project Changes, then simply state "No changes this week."
+- The store ID can be provided in THREE formats:
+  1. **Caper internal store ID** (ex: allegiance-prod-1, prod-clarks-1, prod-hgg-1)
+  2. **Retailer store number/ID** (ex: 530, 1234)
+  3. **Store/location name** (ex: hastings-on-hudson, times-square)
+- If store ID is "all" or empty, search across all stores for that retailer
+- If a non-internal format is provided, resolve it to the internal Caper ID first before searching
 
 ## Important: SKILL output
 - The changelog-weekly output must be an .md file that must follow this naming convention: changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md
@@ -25,6 +31,7 @@ This file contains the the tasks to be completed by the changelog-weekly SKILL. 
 ---
 
 ## Retailer: [to be determined by the user]
+## Store ID: [to be determined by the user - can be Caper internal ID, retailer store number, or location name, or "all"]
 
 ---
 
