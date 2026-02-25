@@ -23,7 +23,7 @@ This file contains the 16 consolidated launch checklist items that MUST be valid
     - Time should be created as 24 hour clock with timezone indicated (ex: 8:00pmEST = 2000EST)
 - The file directory where these files are saved must follow this naming convention: launch-checklist [retailer-name].
     - If the file directory already exists, do not create another one, just save the file to that directory.
-- The output file must not exceed 3,000 words
+- The output file must not exceed 2,000 words
 
 ---
 
@@ -79,110 +79,94 @@ For each of the 16 required items, provide the following information:
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 2: FC firmware updated & chargers tested
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 3: All launch carts present
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 4: HW accessories installed
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 5: W&M passed for all launch carts
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 6: 3rd-party certification (if required)
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 7: APs installed & verified per heatmap
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 8: Checkout connectivity validated
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 9: ZBC / beacons tested and passing
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 10: Software & firmware versions aligned
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 11: Store configs validated
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 12: E2E testing completed & issues logged
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 13: Cart placement confirmed
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 14: Store & OTG training completed
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 15: FSR/BA launch staffing plan confirmed
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
 
 ### Item 16: Marketing complete OR documented
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
-- Evidence: [Link to Jira ticket, doc, Slack thread, or sign-off document]
 - Action Required: [If incomplete, what needs to be done]
