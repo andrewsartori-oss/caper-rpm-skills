@@ -2,6 +2,14 @@
 
 This repository contains custom Claude Code skills for generating Caper cart deployment reports and documentation.
 
+## 🚀 Quick Start for Team Members
+
+**New!** You can now install these skills via the marketplace (no cloning required):
+
+👉 **[See TEAM_SETUP.md for quick installation instructions](TEAM_SETUP.md)** 👈
+
+Or continue below for the traditional clone-and-use setup.
+
 ### Skills Available
 
 **All skills require two arguments:**
