@@ -6,8 +6,5 @@
     "name": "Andrew Sartori",
     "email": "andrew.sartori@instacart.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/andrewsartori-oss/caper-rpm-skills"
-  }
+  "repository": "https://github.com/andrewsartori-oss/caper-rpm-skills"
 }
