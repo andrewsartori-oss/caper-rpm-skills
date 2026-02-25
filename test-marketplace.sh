@@ -1,50 +1,59 @@
 #!/bin/bash
-# Test script for marketplace installation
-# Run this AFTER exiting your current Claude session
-
-set -e
+# Interactive test guide for marketplace installation
+# The /plugin command only works in INTERACTIVE mode, not with --print
 
 echo "🧪 Testing Caper RPM Skills Marketplace"
 echo "========================================"
 echo ""
-
-# Move to a neutral directory
-cd /tmp
-
-echo "📍 Current directory: $(pwd)"
+echo "⚠️  NOTE: /plugin commands require INTERACTIVE mode"
+echo "    This script will guide you through manual testing"
 echo ""
-
-echo "🚀 Step 1: Adding marketplace..."
-echo "   Command: /plugin marketplace add andrewsartori-oss/caper-rpm-skills"
+echo "📍 Testing from: /tmp"
 echo ""
-claude --print "/plugin marketplace add andrewsartori-oss/caper-rpm-skills" || {
-    echo "⚠️  Note: You may need to approve the marketplace addition"
-}
-
+echo "Please follow these steps manually:"
 echo ""
-echo "📋 Step 2: Listing marketplaces..."
-echo "   Command: /plugin marketplace list"
+echo "─────────────────────────────────────────────────────────"
+echo "Step 1: Start Claude in interactive mode"
+echo "─────────────────────────────────────────────────────────"
+echo "  cd /tmp"
+echo "  claude"
 echo ""
-claude --print "/plugin marketplace list"
-
+echo "─────────────────────────────────────────────────────────"
+echo "Step 2: Add the marketplace"
+echo "─────────────────────────────────────────────────────────"
+echo "  /plugin marketplace add andrewsartori-oss/caper-rpm-skills"
 echo ""
-echo "📦 Step 3: Installing plugin..."
-echo "   Command: /plugin install caper-rpm-tools@caper-rpm-skills"
+echo "  Expected: Success message or approval prompt"
 echo ""
-claude --print "/plugin install caper-rpm-tools@caper-rpm-skills" || {
-    echo "⚠️  Note: You may need to approve the plugin installation"
-}
-
+echo "─────────────────────────────────────────────────────────"
+echo "Step 3: List marketplaces (verify it was added)"
+echo "─────────────────────────────────────────────────────────"
+echo "  /plugin marketplace list"
 echo ""
-echo "✅ Step 4: Verifying installation..."
-echo "   Command: /plugin list"
+echo "  Expected: Should show 'caper-rpm-skills' marketplace"
 echo ""
-claude --print "/plugin list"
-
+echo "─────────────────────────────────────────────────────────"
+echo "Step 4: Install the plugin"
+echo "─────────────────────────────────────────────────────────"
+echo "  /plugin install caper-rpm-tools@caper-rpm-skills"
 echo ""
-echo "🎉 Testing complete!"
+echo "  Expected: Success message or approval prompt"
 echo ""
-echo "To use the skills, start Claude and try:"
-echo "  /factsheet HGG prod-hgg-1"
-echo "  /launch-report Clarks prod-clarks-1"
+echo "─────────────────────────────────────────────────────────"
+echo "Step 5: Verify plugin is installed"
+echo "─────────────────────────────────────────────────────────"
+echo "  /plugin list"
+echo ""
+echo "  Expected: Should show 'caper-rpm-tools@caper-rpm-skills'"
+echo ""
+echo "─────────────────────────────────────────────────────────"
+echo "Step 6: Test a skill"
+echo "─────────────────────────────────────────────────────────"
+echo "  /factsheet --help"
+echo ""
+echo "  Expected: Should show skill usage information"
+echo ""
+echo "─────────────────────────────────────────────────────────"
+echo ""
+echo "🎉 If all steps succeed, the marketplace is working!"
 echo ""
