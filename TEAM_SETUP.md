@@ -89,12 +89,58 @@ claude
 
 ## Updating Skills
 
-When Andrew updates the skills, get the latest version:
+### When to Update
+
+Update when:
+- Andrew announces new skill versions in Slack
+- You want bug fixes or improvements
+- New skills have been added
+- You see unexpected behavior (update might fix it)
+
+### How to Update
+
+Get the latest version with a single command:
 
 ```bash
 claude
 /plugin marketplace update caper-rpm-skills
 ```
+
+This command:
+- ✅ Updates all existing skills with bug fixes and improvements
+- ✅ Adds any new skills that were published
+- ✅ Takes ~5 seconds
+
+### Check Your Current Version
+
+To see what version you have installed:
+
+```bash
+claude
+/plugin list
+```
+
+Look for `caper-rpm-tools@caper-rpm-skills` and check the version number.
+
+### Update Notifications
+
+Watch for update announcements in your team Slack channel. Example:
+
+```
+📢 Caper RPM Skills v1.1.0 released!
+- Added new /launch-checklist skill
+- Fixed bug in /factsheet generation
+- Improved /get-to-green performance
+
+To update: /plugin marketplace update caper-rpm-skills
+```
+
+### Automatic Updates?
+
+**Note:** Updates are NOT automatic. You must manually run the update command. Consider updating:
+- Weekly (recommended for active projects)
+- When you see an announcement
+- Before important launches or reports
 
 ## Uninstalling
 
