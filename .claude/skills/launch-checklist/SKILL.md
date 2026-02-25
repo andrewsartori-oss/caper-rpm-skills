@@ -79,6 +79,8 @@ These 16 items MUST be completed for the store to launch:
 
 3. **Report Generation** - Create launch checklist validation report:
 
+Reference the task-list.md file in this directory for the complete report template structure.
+
 ### Report Structure:
 
 #### 1. Launch Overview
@@ -89,19 +91,7 @@ These 16 items MUST be completed for the store to launch:
 - **Report Generated**: Date and time of this report
 - **Overall Launch Readiness**: GO / NO-GO / CONDITIONAL GO
 
-#### 2. Launch Checklist Status (All 16 Items)
-
-For each item, provide:
-
-**[Item Number]. [Item Name]**
-- **Status**: ✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown
-- **Evidence**: Link to Jira ticket, doc, Slack thread, or test result proving completion
-- **Owner**: Person or team responsible
-- **Last Updated**: Date of most recent update
-- **Notes**: Additional context, blockers, or risks
-- **Action Required**: If incomplete, what needs to be done
-
-#### 3. Launch Readiness Summary
+#### 2. Launch Readiness Summary
 - **Total Items**: 16
 - **Complete**: [count] (✅)
 - **In Progress**: [count] (⚠️)
@@ -109,7 +99,7 @@ For each item, provide:
 - **Unknown**: [count] (🔍)
 - **Completion Percentage**: [X%]
 
-#### 4. All 16 Checklist Items Status
+#### 3. All 16 Checklist Items Status
 
 List all 16 items with their current status indicator:
 
@@ -130,18 +120,16 @@ List all 16 items with their current status indicator:
 15. ✅/⚠️/❌/🔍 **FSR/BA launch staffing plan confirmed**
 16. ✅/⚠️/❌/🔍 **Marketing complete OR documented**
 
-#### 5. Blockers & Critical Items
-List any items that are:
-- Not started or in progress with launch date approaching
-- Have blockers preventing completion
-- Are dependencies for other items
-- Are high-risk if not completed
+#### 4. Launch Checklist Status (All 16 Items)
 
-#### 6. Go/No-Go Recommendation
-- **Recommendation**: GO / NO-GO / CONDITIONAL GO
-- **Justification**: Based on checklist completion status
-- **Conditions** (if CONDITIONAL GO): What must be completed before launch
-- **Risks**: What could go wrong if launching now
+For each item, provide:
+
+**[Item Number]. [Item Name]**
+- **Status**: ✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown
+- **Owner**: Person or team responsible
+- **Last Updated**: Date of most recent update
+- **Evidence**: Link to Jira ticket, doc, Slack thread, or test result proving completion
+- **Action Required**: If incomplete, what needs to be done
 
 4. **Output Format** - Save the validation report as a markdown file:
    - Create a markdown file named: `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
@@ -185,7 +173,7 @@ For each of the 16 checklist items, search for evidence:
 
 ## Output Requirements
 
-- **The output file must not exceed 5,000 words**
+- **The output file must not exceed 3,000 words**
 - The report must validate ALL 16 checklist items
 - Each item must have a clear status (✅/⚠️/❌/🔍)
 - All [] brackets must be filled with real data
