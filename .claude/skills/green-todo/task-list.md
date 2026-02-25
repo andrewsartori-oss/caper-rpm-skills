@@ -34,7 +34,7 @@ This file contains actionable tasks to achieve project health (Green status) OR 
   - Time should be created as 24 hour clock with timezone indicated (ex: 8:00pmEST = 2000EST)
 - The file directory where these files are saved must follow this naming convention: green-todo [retailer-name].
   - If the file directory already exists, do not create another one, just save the file to that directory.
-- The output file must not exceed 5,000 words
+- The output file must not exceed 2,000 words
 
 ---
 
