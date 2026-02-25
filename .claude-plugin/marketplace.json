@@ -1,0 +1,21 @@
+{
+  "name": "caper-rpm-skills",
+  "owner": {
+    "name": "Andrew Sartori - Caper RPM Team",
+    "email": "andrew.sartori@instacart.com"
+  },
+  "metadata": {
+    "description": "Caper RPM deployment skills for retail launch management - internal team tools for project status tracking, launch readiness validation, and deployment documentation"
+  },
+  "plugins": [
+    {
+      "name": "caper-rpm-tools",
+      "source": "./",
+      "description": "Complete suite of skills for Caper cart deployments including factsheet generation, launch reports, status tracking, task lists, and blindspot detection",
+      "version": "1.0.0",
+      "author": {
+        "name": "Andrew Sartori"
+      }
+    }
+  ]
+}

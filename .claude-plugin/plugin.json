@@ -1,0 +1,13 @@
+{
+  "name": "caper-rpm-tools",
+  "description": "Caper deployment management skills",
+  "version": "1.0.0",
+  "author": {
+    "name": "Andrew Sartori",
+    "email": "andrew.sartori@instacart.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewsartori-oss/caper-rpm-skills"
+  }
+}
