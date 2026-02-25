@@ -4,6 +4,7 @@ description: Generate a comprehensive factsheet with all key facts about a speci
 argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
+tools: mcp__glean_default__search, mcp__glean_default__read_document, mcp__glean_default__chat
 ---
 
 # Caper Cart Deployment Factsheet Generator

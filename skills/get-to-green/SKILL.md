@@ -4,6 +4,7 @@ description: Generate a comprehensive "get-to-green" status report for a specifi
 argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
+tools: mcp__glean_default__search, mcp__glean_default__read_document, mcp__glean_default__chat
 ---
 
 # Get-to-Green Report Generator

@@ -4,6 +4,7 @@ description: Identify tasks committed to or assigned but not completed or access
 argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
+tools: mcp__glean_default__search, mcp__glean_default__read_document, mcp__glean_default__chat
 ---
 
 # Blindspot Task Identifier

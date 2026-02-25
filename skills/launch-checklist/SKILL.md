@@ -4,6 +4,7 @@ description: Validate completion status of all required launch checklist items f
 argument-hint: [retailer-name] [store-id]
 context: fork
 agent: general-purpose
+tools: mcp__glean_default__search, mcp__glean_default__read_document, mcp__glean_default__chat
 ---
 
 # Launch Checklist Validator
@@ -154,21 +155,43 @@ For each item, provide:
 
 ## Research Tools Available
 
-Use these tools to gather information:
-- **Glean Search**: Search internal company documentation for checklist item evidence
-- **Glean Chat**: Ask about specific checklist items and their completion status
-- **Grep/Glob**: Search local files for evidence
+Use these MCP tools to gather information from Glean (Jira, Confluence, Google Docs, Slack):
+
+### 1. **mcp__glean_default__search** - Search for documents and tickets
+Use this tool to search across all Glean-indexed sources (Jira, Confluence, Google Docs, Slack).
+
+**Important:** All filters (`app`, `after`, `before`) must be embedded in the query string.
+
+**Example searches:**
+- Jira tickets: `query: "app:\"jira\" [retailer-name] [store-id] electrical chargers"`
+- Google Docs: `query: "app:\"gdoc\" [retailer-name] [store-id] W&M certification"`
+- Slack messages: `query: "app:\"slack\" [retailer-name] [store-id] E2E testing complete"`
+- Confluence: `query: "app:\"confluence\" [retailer-name] launch checklist"`
+
+### 2. **mcp__glean_default__read_document** - Read full document content
+Use this to read complete documents found via search (provide the document URL or ID).
+
+### 3. **mcp__glean_default__chat** - Ask questions about project status
+Use this to ask natural language questions about the deployment status.
+
+**Example:** `prompt: "What is the status of electrical work for [retailer-name] [store-id]?"`
+
+### 4. **Grep/Glob/Read** - Search local files
+- **Grep**: Search file contents for keywords
+- **Glob**: Find files by name pattern
 - **Read**: Read specific files with completion documentation
 
 ## Search Strategy
 
-For each of the 16 checklist items, search for evidence:
-- Jira tickets with item keywords + store ID
-- Documentation mentioning completion or sign-off
-- Slack messages confirming completion or showing work in progress
-- Test results, certification documents, or training records
-- Photos or videos of installations
-- Email confirmations from vendors or stakeholders
+For each of the 16 checklist items, search for evidence using mcp__glean_default__search:
+- Jira tickets: `app:\"jira\"` + item keywords + store ID
+- Documentation: `app:\"gdoc\" OR app:\"confluence\"` + item keywords
+- Slack messages: `app:\"slack\"` + confirmation or status updates
+- Search for:
+  - Test results, certification documents, training records
+  - Sign-off documentation and approvals
+  - Installation verification and photos
+  - Staffing plans and schedules
 
 ## Output Requirements
 
