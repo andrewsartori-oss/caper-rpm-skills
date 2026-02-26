@@ -130,27 +130,32 @@ Reference the task-list.md file in this directory for the complete template stru
 **10. Project Artifacts & References**
 - Links to all relevant documents
 
-4. **Output Format** - Create a Google Doc with the factsheet:
-   - First, create the factsheet content in markdown format
+4. **Output Format** - Save the factsheet as a markdown file:
+   - Create a markdown file named: `factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+   - The file name includes the time when it was created
+   - This allows multiple files to be created on the same day without deleting previous ones
+   - Save the file in the "factsheet [retailer]" folder on the Desktop
    - Format as a well-structured markdown document with clear sections and subsections
    - Replace ALL [] placeholders with actual information
    - If information is not available, note "Information not available" or "TBD"
    - Include all specific details: addresses, names, phone numbers, IDs, etc.
    - Include source references where applicable (Jira tickets, document links, etc.)
    - Make the factsheet comprehensive and accurate
-   - Document title format: `Factsheet - [Retailer Name] ([Month] [Day] [Year])`
-   - Example title: `Factsheet - HGG (Feb 8 2026)`
 
-5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
-   - First, save the markdown content to a temporary file in `/tmp/` directory
-   - File naming: `/tmp/factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+5. **File Creation and Google Doc Upload** - CRITICAL: Save locally AND upload to Google Docs:
+   - First, check if the directory exists: `/Users/andrewsartori/Desktop/factsheet [retailer]/`
+   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/factsheet [retailer]"`
+   - If it exists, use the existing directory (do NOT create another one)
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then upload to Google Docs using the md2doc upload script:
+   - Save the file to: `/Users/andrewsartori/Desktop/factsheet [retailer]/factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+   - Example: For HGG on Feb 8, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/factsheet HGG/factsheet-HGG-02-08-2026-2000EST.md`
+   - Then upload the same file to Google Docs using the md2doc upload script:
      ```bash
-     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Factsheet - [Retailer Name] ([Month] [Day] [Year])"
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/Users/andrewsartori/Desktop/factsheet [retailer]/factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Factsheet - [Retailer Name] ([Month] [Day] [Year])"
      ```
-   - After upload completes, inform the user of the Google Doc URL
-   - Clean up the temporary markdown file after successful upload
+   - After successful upload, provide the user with:
+     - The local file location on Desktop
+     - The Google Doc URL
 
 ## Research Tools Available
 
@@ -168,10 +173,18 @@ Use these tools to gather information:
 - Replace ALL [] placeholders with actual data
 - If information is not available, explicitly note "Information not available" or "TBD"
 - Include specific details: numbers, names, addresses, IDs, dates
-- **MUST create a Google Doc** - Do not just output to console
-- **Document title format**: `Factsheet - [Retailer Name] ([Month] [Day] [Year])`
-- **Temporary file naming**: `factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-- After successful upload, provide the user with the Google Doc URL
+- **MUST save markdown file locally AND create a Google Doc**
+- **File naming convention**: `factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+  - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
+  - This allows multiple files per day without deleting previous versions
+- **Folder naming convention**: `factsheet [retailer]`
+- **Save location**: `/Users/andrewsartori/Desktop/factsheet [retailer]/`
+- If the retailer-specific folder exists, use it (do NOT create another one)
+- If it doesn't exist, create it
+- **Google Doc title format**: `Factsheet - [Retailer Name] ([Month] [Day] [Year])`
+- After successful upload, provide the user with:
+  - The local file location on Desktop
+  - The Google Doc URL
 - Include source references (Jira tickets, document links, Slack threads)
 - Format should be clear and well-organized for easy reference
 - This is a factual reference document - be accurate and thorough

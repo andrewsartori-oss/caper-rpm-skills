@@ -79,26 +79,31 @@ For each category below, list the changes that occurred in the past week. If the
 7. **New or Updated Project Scope**: Brief description of scope changes
 8. **Other Critical Project Changes**: ONLY include CRITICAL changes not covered above
 
-4. **Output Format** - Create a Google Doc with the changelog:
-   - First, create the changelog content in markdown format
+4. **Output Format** - Save the changelog as a markdown file:
+   - Create a markdown file named: `changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+   - The file name includes the time when it was created
+   - This allows multiple files to be created on the same day without deleting previous ones
+   - Save the file in the "changelog [retailer]" folder on the Desktop
    - Format as a well-structured markdown document with clear sections
    - Replace ALL [] placeholders with actual information
    - Add specific dates when changes occurred
    - Include source references where applicable (Jira ticket numbers, Slack thread dates, etc.)
    - Keep descriptions brief and focused
-   - Document title format: `Weekly Changelog - [Retailer Name] ([Month] [Day] [Year])`
-   - Example title: `Weekly Changelog - HGG (Feb 8 2026)`
 
-5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
-   - First, save the markdown content to a temporary file in `/tmp/` directory
-   - File naming: `/tmp/changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+5. **File Creation and Google Doc Upload** - CRITICAL: Save locally AND upload to Google Docs:
+   - First, check if the directory exists: `/Users/andrewsartori/Desktop/changelog [retailer]/`
+   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/changelog [retailer]"`
+   - If it exists, use the existing directory (do NOT create another one)
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then upload to Google Docs using the md2doc upload script:
+   - Save the file to: `/Users/andrewsartori/Desktop/changelog [retailer]/changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+   - Example: For HGG on Feb 8, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/changelog HGG/changelog-HGG-02-08-2026-2000EST.md`
+   - Then upload the same file to Google Docs using the md2doc upload script:
      ```bash
-     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Weekly Changelog - [Retailer Name] ([Month] [Day] [Year])"
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/Users/andrewsartori/Desktop/changelog [retailer]/changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Weekly Changelog - [Retailer Name] ([Month] [Day] [Year])"
      ```
-   - After upload completes, inform the user of the Google Doc URL
-   - Clean up the temporary markdown file after successful upload
+   - After successful upload, provide the user with:
+     - The local file location on Desktop
+     - The Google Doc URL
 
 ## Research Tools Available
 

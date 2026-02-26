@@ -200,27 +200,32 @@ Evaluate against GO/NO-GO/CONDITIONAL GO criteria:
 
 **FINAL RECOMMENDATION**: Clear statement with detailed justification
 
-4. **Output Format** - Create a Google Doc with the launch report:
-   - First, create the report content in markdown format
+4. **Output Format** - Save the launch report as a markdown file:
+   - Create a markdown file named: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+   - The file name includes the time when it was created
+   - This allows multiple files to be created on the same day without deleting previous ones
+   - Save the file in the "launch-report [retailer]" folder on the Desktop
    - Format as a well-structured markdown document with proper headings, lists, and checkboxes
    - Include all research findings with specific details
    - Replace ALL [] placeholders with actual information
    - Add specific dates, ticket numbers, test results, and concrete details
    - Include source references where applicable
    - Use checkboxes for incomplete/completed items
-   - Document title format: `Launch Report - [Retailer Name] [store-id] ([Month] [Day] [Year])`
-   - Example title: `Launch Report - HGG prod-hgg-1 (Feb 15 2026)`
 
-5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
-   - First, save the markdown content to a temporary file in `/tmp/` directory
-   - File naming: `/tmp/LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+5. **File Creation and Google Doc Upload** - CRITICAL: Save locally AND upload to Google Docs:
+   - First, check if the directory exists: `/Users/andrewsartori/Desktop/launch-report [retailer]/`
+   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/launch-report [retailer]"`
+   - If it exists, use the existing directory (do NOT create another one)
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then upload to Google Docs using the md2doc upload script:
+   - Save the file to: `/Users/andrewsartori/Desktop/launch-report [retailer]/LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+   - Example: For HGG prod-hgg-1 on Feb 15, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/launch-report HGG/LAUNCH-HGG-prod-hgg-1-02-15-2026-2000EST.md`
+   - Then upload the same file to Google Docs using the md2doc upload script:
      ```bash
-     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md" --title "Launch Report - [Retailer Name] [store-id] ([Month] [Day] [Year])"
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/Users/andrewsartori/Desktop/launch-report [retailer]/LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md" --title "Launch Report - [Retailer Name] [store-id] ([Month] [Day] [Year])"
      ```
-   - After upload completes, inform the user of the Google Doc URL
-   - Clean up the temporary markdown file after successful upload
+   - After successful upload, provide the user with:
+     - The local file location on Desktop
+     - The Google Doc URL
 
 ## Research Tools Available
 
@@ -242,12 +247,19 @@ Use these tools to gather information:
 - List all missing artifacts and unresolved dependencies specific to this store
 - Include specific action items with owners when possible
 - Be honest about risks and readiness gaps
-- **MUST create a Google Doc** - Do not just output to console
-- **Document title format**: `Launch Report - [Retailer Name] [store-id] ([Month] [Day] [Year])`
-- **Temporary file naming**: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+- **MUST save markdown file locally AND create a Google Doc**
+- **File naming convention**: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
   - Store ID: Internal Caper store ID (ex: prod-hgg-1)
-  - Saved to `/tmp/` directory during upload process
-- After successful upload, provide the user with the Google Doc URL
+  - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
+  - This allows multiple files per day without deleting previous versions
+- **Folder naming convention**: `launch-report [retailer]`
+- **Save location**: `/Users/andrewsartori/Desktop/launch-report [retailer]/`
+- If the retailer-specific folder exists, use it (do NOT create another one)
+- If it doesn't exist, create it
+- **Google Doc title format**: `Launch Report - [Retailer Name] [store-id] ([Month] [Day] [Year])`
+- After successful upload, provide the user with:
+  - The local file location on Desktop
+  - The Google Doc URL
 
 ## Critical Success Factors
 

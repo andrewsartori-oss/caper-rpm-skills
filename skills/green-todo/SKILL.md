@@ -92,32 +92,37 @@ Reference the task-list.md file in this directory for the complete template stru
   - Keep items concise and action-oriented
   - List as many as necessary
 
-4. **Output Format** - Create a Google Doc with the task list:
-   - First, create the task list content in markdown format with clear sections
-   - Format as a well-structured markdown document
+4. **Output Format** - Save the task list as a markdown file:
+   - Create a markdown file with context-aware naming:
+     - **If store ID provided**: `green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+     - **If no store ID**: `green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+   - The file name includes the time when it was created
+   - This allows multiple files to be created on the same day without deleting previous ones
+   - Save the file in the "green-todo [retailer]" folder on the Desktop
+   - Format as a well-structured markdown document with clear sections
    - Replace ALL [] placeholders with actual information
    - Add specific dates, ticket numbers, store IDs (if applicable), and concrete details
    - Include source references where applicable (Jira tickets, Slack threads, etc.)
    - Make all action items specific and actionable
-   - Document title format:
-     - **If store ID provided**: `Green Todo - [Retailer Name] [store-id] ([Month] [Day] [Year])`
-     - **If no store ID**: `Green Todo - [Retailer Name] ([Month] [Day] [Year])`
-   - Example titles:
-     - `Green Todo - Clarks prod-clarks-1 (Feb 26 2026)`
-     - `Green Todo - HGG (Feb 8 2026)`
 
-5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
-   - First, save the markdown content to a temporary file in `/tmp/` directory
-   - File naming with context-aware naming:
-     - **If store ID provided**: `/tmp/green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
-     - **If no store ID**: `/tmp/green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+5. **File Creation and Google Doc Upload** - CRITICAL: Save locally AND upload to Google Docs:
+   - First, check if the directory exists: `/Users/andrewsartori/Desktop/green-todo [retailer]/`
+   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/green-todo [retailer]"`
+   - If it exists, use the existing directory (do NOT create another one)
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then upload to Google Docs using the md2doc upload script:
+   - Save the file with context-aware naming:
+     - **If store ID provided**: `/Users/andrewsartori/Desktop/green-todo [retailer]/green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+     - **If no store ID**: `/Users/andrewsartori/Desktop/green-todo [retailer]/green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+   - Examples:
+     - For HGG with no store ID on Feb 8, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/green-todo HGG/green-todo-HGG-02-08-2026-2000EST.md`
+     - For Clarks with prod-clarks-1 on Feb 19, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/green-todo Clarks/green-todo-Clarks-prod-clarks-1-02-19-2026-2000EST.md`
+   - Then upload the same file to Google Docs using the md2doc upload script:
      ```bash
-     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md" --title "Green Todo - [Retailer Name] [store-id] ([Month] [Day] [Year])"
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/Users/andrewsartori/Desktop/green-todo [retailer]/green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md" --title "Green Todo - [Retailer Name] [store-id] ([Month] [Day] [Year])"
      ```
-   - After upload completes, inform the user of the Google Doc URL
-   - Clean up the temporary markdown file after successful upload
+   - After successful upload, provide the user with:
+     - The local file location on Desktop
+     - The Google Doc URL
 
 ## Research Tools Available
 
@@ -142,20 +147,25 @@ Use these tools to gather information:
 - Be realistic about timelines and requirements
 - Focus only on what's needed to achieve Green status OR launch readiness
 - Do NOT include comprehensive workstream assessments, detailed risk analysis, contingency plans, historical context, or any other sections
-- **MUST create a Google Doc** - Do not just output to console
-- **Document title format**:
-  - With store ID: `Green Todo - [Retailer Name] [store-id] ([Month] [Day] [Year])`
-  - Without store ID: `Green Todo - [Retailer Name] ([Month] [Day] [Year])`
-  - Example: `Green Todo - Clarks prod-clarks-1 (Feb 26 2026)`
-  - Avoid special characters like apostrophes, colons, or parentheses in retailer names that could cause API errors
-- **Temporary file naming**:
+- **MUST save markdown file locally AND create a Google Doc**
+- **File naming convention**:
   - With store ID: `green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
   - Without store ID: `green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
   - Store ID: Internal Caper store ID (ex: prod-clarks-1)
   - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-  - Saved to `/tmp/` directory during upload process
-- After successful upload, provide the user with the Google Doc URL
-- Clean up temporary markdown file after upload
+  - This allows multiple files per day without deleting previous versions
+- **Folder naming convention**: `green-todo [retailer]`
+- **Save location**: `/Users/andrewsartori/Desktop/green-todo [retailer]/`
+- If the retailer-specific folder exists, use it (do NOT create another one)
+- If it doesn't exist, create it
+- **Google Doc title format**:
+  - With store ID: `Green Todo - [Retailer Name] [store-id] ([Month] [Day] [Year])`
+  - Without store ID: `Green Todo - [Retailer Name] ([Month] [Day] [Year])`
+  - Example: `Green Todo - Clarks prod-clarks-1 (Feb 26 2026)`
+  - Avoid special characters like apostrophes, colons, or parentheses in retailer names that could cause API errors
+- After successful upload, provide the user with:
+  - The local file location on Desktop
+  - The Google Doc URL
 
 ## Critical Success Factors
 

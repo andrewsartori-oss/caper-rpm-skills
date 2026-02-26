@@ -94,26 +94,31 @@ Create contingency plans for scenarios that could push the project to Red status
 - Scenario 2: [Description] with Action Items & Dates
 - Scenario 3: [Description] with Action Items & Dates
 
-4. **Output Format** - Create a Google Doc with the report:
-   - First, create the report content in markdown format
+4. **Output Format** - Save the report as a markdown file:
+   - Create a markdown file named: `G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+   - The file name includes the time when it was created
+   - This allows multiple files to be created on the same day without deleting previous ones
+   - Save the file in the "get-to-green [retailer]" folder on the Desktop
    - Format as a well-structured markdown document with proper headings, lists, and emphasis
    - Include all research findings with specific details
    - Replace ALL [] placeholders with actual information
    - Add specific dates, ticket numbers, and concrete details
    - Include source references where applicable
-   - Document title format: `Get to Green - [Retailer Name] ([Month] [Day] [Year])`
-   - Example title: `Get to Green - HGG (Feb 8 2026)`
 
-5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
-   - First, save the markdown content to a temporary file in `/tmp/` directory
-   - File naming: `/tmp/G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+5. **File Creation and Google Doc Upload** - CRITICAL: Save locally AND upload to Google Docs:
+   - First, check if the directory exists: `/Users/andrewsartori/Desktop/get-to-green [retailer]/`
+   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/get-to-green [retailer]"`
+   - If it exists, use the existing directory (do NOT create another one)
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then upload to Google Docs using the md2doc upload script:
+   - Save the file to: `/Users/andrewsartori/Desktop/get-to-green [retailer]/G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+   - Example: For HGG on Feb 8, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/get-to-green HGG/G2G-HGG-02-08-2026-2000EST.md`
+   - Then upload the same file to Google Docs using the md2doc upload script:
      ```bash
-     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Get to Green - [Retailer Name] ([Month] [Day] [Year])"
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/Users/andrewsartori/Desktop/get-to-green [retailer]/G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Get to Green - [Retailer Name] ([Month] [Day] [Year])"
      ```
-   - After upload completes, inform the user of the Google Doc URL
-   - Clean up the temporary markdown file after successful upload
+   - After successful upload, provide the user with:
+     - The local file location on Desktop
+     - The Google Doc URL
 
 ## Research Tools Available
 
