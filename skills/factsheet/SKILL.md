@@ -153,9 +153,15 @@ Reference the task-list.md file in this directory for the complete template stru
      ```bash
      export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/Users/andrewsartori/Desktop/factsheet [retailer]/factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Factsheet - [Retailer Name] ([Month] [Day] [Year])"
      ```
-   - After successful upload, provide the user with:
-     - The local file location on Desktop
+   - After successful upload, create a .webloc shortcut file to the Google Doc in the same folder:
+     - Extract the Google Doc URL from the upload output
+     - Create a .webloc file with the same base filename: `/Users/andrewsartori/Desktop/factsheet [retailer]/factsheet-[retailer]-[MM]-[DD]-[YYYY]-[Time].webloc`
+     - The .webloc file should be a macOS Safari bookmark in XML plist format containing the Google Doc URL
+     - When user double-clicks the .webloc file, it will open the Google Doc in their browser
+   - After completion, provide the user with:
+     - The local markdown file location on Desktop
      - The Google Doc URL
+     - The .webloc shortcut file location
 
 ## Research Tools Available
 
