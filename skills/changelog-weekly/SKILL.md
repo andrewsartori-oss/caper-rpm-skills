@@ -79,26 +79,26 @@ For each category below, list the changes that occurred in the past week. If the
 7. **New or Updated Project Scope**: Brief description of scope changes
 8. **Other Critical Project Changes**: ONLY include CRITICAL changes not covered above
 
-4. **Output Format** - Save the changelog as a markdown file:
-   - Create a markdown file named: `changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - The file name includes the time when it was created
-   - This allows multiple files to be created on the same day without deleting previous ones
-   - Save the file in the "changelog [retailer]" folder on the Desktop
+4. **Output Format** - Create a Google Doc with the changelog:
+   - First, create the changelog content in markdown format
    - Format as a well-structured markdown document with clear sections
    - Replace ALL [] placeholders with actual information
    - Add specific dates when changes occurred
    - Include source references where applicable (Jira ticket numbers, Slack thread dates, etc.)
    - Keep descriptions brief and focused
+   - Document title format: `Weekly Changelog - [Retailer Name] ([Month] [Day] [Year])`
+   - Example title: `Weekly Changelog - HGG (Feb 8 2026)`
 
-5. **File Creation** - CRITICAL: Check if directory exists, then create the markdown file:
-   - First, check if the directory exists: `/Users/andrewsartori/Desktop/changelog [retailer]/`
-   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/changelog [retailer]"`
-   - If it exists, use the existing directory (do NOT create another one)
+5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
+   - First, save the markdown content to a temporary file in `/tmp/` directory
+   - File naming: `/tmp/changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then save the file to: `/Users/andrewsartori/Desktop/changelog [retailer]/changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - Example: For HGG on Feb 8, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/changelog HGG/changelog-HGG-02-08-2026-2000EST.md`
-   - Content: Complete formatted changelog in markdown
-   - After writing the file, inform the user of the exact file location
+   - Then upload to Google Docs using the md2doc upload script:
+     ```bash
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Weekly Changelog - [Retailer Name] ([Month] [Day] [Year])"
+     ```
+   - After upload completes, inform the user of the Google Doc URL
+   - Clean up the temporary markdown file after successful upload
 
 ## Research Tools Available
 
@@ -119,14 +119,9 @@ Use these tools to gather information:
 - If a category has no changes, state "No changes this week"
 - Focus on meaningful changes - filter out minor updates
 - Include source references (Jira tickets, Slack threads, document links)
-- **MUST create a markdown file** - Do not just output to console
-- **File naming convention**: `changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-  - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-  - This allows multiple files per day without deleting previous versions
-- **Folder naming convention**: `changelog [retailer]`
-- **Save location**: `/Users/andrewsartori/Desktop/changelog [retailer]/`
-- If the retailer-specific folder exists, use it (do NOT create another one)
-- If it doesn't exist, create it
-- Inform the user of the exact file location after creation
+- **MUST create a Google Doc** - Do not just output to console
+- **Document title format**: `Weekly Changelog - [Retailer Name] ([Month] [Day] [Year])`
+- **Temporary file naming**: `changelog-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+- After successful upload, provide the user with the Google Doc URL
 
-Generate a brief weekly changelog for **$ARGUMENTS** covering the past 7 days and save it as a markdown file in a Desktop folder named "changelog [retailer]".
+Generate a brief weekly changelog for **$ARGUMENTS** covering the past 7 days and create it as a Google Doc using the md2doc plugin.

@@ -94,31 +94,26 @@ Create contingency plans for scenarios that could push the project to Red status
 - Scenario 2: [Description] with Action Items & Dates
 - Scenario 3: [Description] with Action Items & Dates
 
-4. **Output Format** - Save the report as a markdown file:
-   - Create a markdown file named: `G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - The file name includes the time when it was created
-   - This allows multiple files to be created on the same day without deleting previous ones
-   - Save the file in the "get-to-green [retailer]" folder on the Desktop
+4. **Output Format** - Create a Google Doc with the report:
+   - First, create the report content in markdown format
    - Format as a well-structured markdown document with proper headings, lists, and emphasis
    - Include all research findings with specific details
    - Replace ALL [] placeholders with actual information
    - Add specific dates, ticket numbers, and concrete details
    - Include source references where applicable
-   - Add a note at the end with instructions for copying to Google Doc
+   - Document title format: `Get to Green - [Retailer Name] ([Month] [Day] [Year])`
+   - Example title: `Get to Green - HGG (Feb 8 2026)`
 
-5. **File Creation** - CRITICAL: Check if directory exists, then create the markdown file:
-   - First, check if the directory exists: `/Users/andrewsartori/Desktop/get-to-green [retailer]/`
-   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/get-to-green [retailer]"`
-   - If it exists, use the existing directory (do NOT create another one)
+5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
+   - First, save the markdown content to a temporary file in `/tmp/` directory
+   - File naming: `/tmp/G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then save the file to: `/Users/andrewsartori/Desktop/get-to-green [retailer]/G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - Example: For HGG on Feb 8, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/get-to-green HGG/G2G-HGG-02-08-2026-2000EST.md`
-   - Content: Complete formatted report in markdown
-   - After writing the file, inform the user of the exact file location
-
-6. **Google Doc Instructions** - Include at the end of the markdown file:
-   - Provide clear instructions for copying the formatted report into a Google Doc
-   - Suggest appropriate formatting for the Google Doc version
+   - Then upload to Google Docs using the md2doc upload script:
+     ```bash
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Get to Green - [Retailer Name] ([Month] [Day] [Year])"
+     ```
+   - After upload completes, inform the user of the Google Doc URL
+   - Clean up the temporary markdown file after successful upload
 
 ## Research Tools Available
 
@@ -130,22 +125,16 @@ Use these tools to gather information:
 
 ## Output Requirements
 
-- **The output file must not exceed 5,000 words**
+- **The output document must not exceed 5,000 words**
 - The report must be comprehensive and actionable
 - All [] brackets must be filled with real data
 - Include specific dates, not placeholders like [DATE]
 - Provide evidence-based status assessment
 - Include clear action items with owners when possible
 - Be honest about risks and challenges
-- **MUST create a markdown file** - Do not just output to console
-- **File naming convention**: `G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-  - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-  - This allows multiple files per day without deleting previous versions
-- **Folder naming convention**: `get-to-green [retailer]`
-- **Save location**: `/Users/andrewsartori/Desktop/get-to-green [retailer]/`
-- If the retailer-specific folder exists, use it (do NOT create another one)
-- If it doesn't exist, create it
-- Inform the user of the exact file location after creation
-- Include Google Drive upload instructions at the end of the report
+- **MUST create a Google Doc** - Do not just output to console
+- **Document title format**: `Get to Green - [Retailer Name] ([Month] [Day] [Year])`
+- **Temporary file naming**: `G2G-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+- After successful upload, provide the user with the Google Doc URL
 
-Generate the complete get-to-green report for **$ARGUMENTS** and save it as a markdown file in a Desktop folder named "get-to-green [retailer]".
+Generate the complete get-to-green report for **$ARGUMENTS** and create it as a Google Doc using the md2doc plugin.

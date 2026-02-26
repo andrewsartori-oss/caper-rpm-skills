@@ -127,27 +127,27 @@ Create specific action items to address blindspots immediately:
   - Stakeholder 1: What to communicate
   - Stakeholder 2: What to communicate
 
-4. **Output Format** - Save the report as a markdown file:
-   - Create a markdown file named: `blindspot-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - The file name includes the time when it was created
-   - This allows multiple files to be created on the same day without deleting previous ones
-   - Save the file in the "blindspot [retailer]" folder on the Desktop
+4. **Output Format** - Create a Google Doc with the blindspot report:
+   - First, create the report content in markdown format
    - Format as a well-structured markdown document with proper headings, lists, and emphasis
    - Include all research findings with specific details and references
    - Replace ALL [] placeholders with actual information
    - Add specific dates, times, ticket numbers, links, and concrete details
    - Include source references (Jira tickets, Slack thread URLs, email subjects, meeting note docs)
    - Highlight urgency and immediate actions needed
+   - Document title format: `Blindspot Analysis - [Retailer Name] ([Month] [Day] [Year])`
+   - Example title: `Blindspot Analysis - HGG (Feb 19 2026)`
 
-5. **File Creation** - CRITICAL: Check if directory exists, then create the markdown file:
-   - First, check if the directory exists: `/Users/andrewsartori/Desktop/blindspot [retailer]/`
-   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/blindspot [retailer]"`
-   - If it exists, use the existing directory (do NOT create another one)
+5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
+   - First, save the markdown content to a temporary file in `/tmp/` directory
+   - File naming: `/tmp/blindspot-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then save the file to: `/Users/andrewsartori/Desktop/blindspot [retailer]/blindspot-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - Example: For HGG on Feb 19, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/blindspot HGG/blindspot-HGG-02-19-2026-2000EST.md`
-   - Content: Complete formatted report in markdown
-   - After writing the file, inform the user of the exact file location
+   - Then upload to Google Docs using the md2doc upload script:
+     ```bash
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/blindspot-[retailer]-[MM]-[DD]-[YYYY]-[Time].md" --title "Blindspot Analysis - [Retailer Name] ([Month] [Day] [Year])"
+     ```
+   - After upload completes, inform the user of the Google Doc URL
+   - Clean up the temporary markdown file after successful upload
 
 6. **Notification Preparation** - Include at the end of the markdown file:
    - Draft messages for key stakeholders about delayed tasks
@@ -195,15 +195,10 @@ Focus your searches on finding (retailer-specific only):
 - Be honest about capacity and why tasks fell through the cracks
 - Prioritize immediate actions for today
 - Each task in the report should clearly mention the retailer name to demonstrate relevance
-- **MUST create a markdown file** - Do not just output to console
-- **File naming convention**: `blindspot-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-  - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-  - This allows multiple files per day without deleting previous versions
-- **Folder naming convention**: `blindspot [retailer]`
-- **Save location**: `/Users/andrewsartori/Desktop/blindspot [retailer]/`
-- If the retailer-specific folder exists, use it (do NOT create another one)
-- If it doesn't exist, create it
-- Inform the user of the exact file location after creation
+- **MUST create a Google Doc** - Do not just output to console
+- **Document title format**: `Blindspot Analysis - [Retailer Name] ([Month] [Day] [Year])`
+- **Temporary file naming**: `blindspot-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
+- After successful upload, provide the user with the Google Doc URL
 - Include stakeholder notification drafts at the end of the report
 
-Generate the complete blindspot report for **$ARGUMENTS** and save it as a markdown file in a Desktop folder named "blindspot [retailer]".
+Generate the complete blindspot report for **$ARGUMENTS** and create it as a Google Doc using the md2doc plugin.

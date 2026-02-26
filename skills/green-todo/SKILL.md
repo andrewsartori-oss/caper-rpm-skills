@@ -92,32 +92,32 @@ Reference the task-list.md file in this directory for the complete template stru
   - Keep items concise and action-oriented
   - List as many as necessary
 
-4. **Output Format** - Save the task list as a markdown file:
-   - Create a markdown file with context-aware naming:
-     - **If store ID provided**: `green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
-     - **If no store ID**: `green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - The file name includes the time when it was created
-   - This allows multiple files to be created on the same day without deleting previous ones
-   - Save the file in the "green-todo [retailer]" folder on the Desktop
-   - Format as a well-structured markdown document with clear sections
+4. **Output Format** - Create a Google Doc with the task list:
+   - First, create the task list content in markdown format with clear sections
+   - Format as a well-structured markdown document
    - Replace ALL [] placeholders with actual information
    - Add specific dates, ticket numbers, store IDs (if applicable), and concrete details
    - Include source references where applicable (Jira tickets, Slack threads, etc.)
    - Make all action items specific and actionable
+   - Document title format:
+     - **If store ID provided**: `Green Todo - [Retailer Name] [store-id] ([Month] [Day] [Year])`
+     - **If no store ID**: `Green Todo - [Retailer Name] ([Month] [Day] [Year])`
+   - Example titles:
+     - `Green Todo - Clarks prod-clarks-1 (Feb 26 2026)`
+     - `Green Todo - HGG (Feb 8 2026)`
 
-5. **File Creation** - CRITICAL: Check if directory exists, then create the markdown file:
-   - First, check if the directory exists: `/Users/andrewsartori/Desktop/green-todo [retailer]/`
-   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/green-todo [retailer]"`
-   - If it exists, use the existing directory (do NOT create another one)
+5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
+   - First, save the markdown content to a temporary file in `/tmp/` directory
+   - File naming with context-aware naming:
+     - **If store ID provided**: `/tmp/green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+     - **If no store ID**: `/tmp/green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then save the file with context-aware naming:
-     - **If store ID provided**: `/Users/andrewsartori/Desktop/green-todo [retailer]/green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
-     - **If no store ID**: `/Users/andrewsartori/Desktop/green-todo [retailer]/green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
-   - Examples:
-     - For HGG with no store ID on Feb 8, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/green-todo HGG/green-todo-HGG-02-08-2026-2000EST.md`
-     - For Clarks with prod-clarks-1 on Feb 19, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/green-todo Clarks/green-todo-Clarks-prod-clarks-1-02-19-2026-2000EST.md`
-   - Content: Complete formatted task list in markdown (ONLY Tasks 1 and 2)
-   - After writing the file, inform the user of the exact file location
+   - Then upload to Google Docs using the md2doc upload script:
+     ```bash
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md" --title "Green Todo - [Retailer Name] [store-id] ([Month] [Day] [Year])"
+     ```
+   - After upload completes, inform the user of the Google Doc URL
+   - Clean up the temporary markdown file after successful upload
 
 ## Research Tools Available
 
@@ -129,7 +129,7 @@ Use these tools to gather information:
 
 ## Output Requirements
 
-- **The output file must not exceed 4,000 words**
+- **The output document must not exceed 4,000 words**
 - **CRITICAL**: The output can ONLY contain Tasks 1 and 2
 - **CRITICAL**: Keep the task list SHORT, SPECIFIC, and ACTION-FOCUSED
 - This is NOT a comprehensive report - focus ONLY on critical items
@@ -142,18 +142,20 @@ Use these tools to gather information:
 - Be realistic about timelines and requirements
 - Focus only on what's needed to achieve Green status OR launch readiness
 - Do NOT include comprehensive workstream assessments, detailed risk analysis, contingency plans, historical context, or any other sections
-- **MUST create a markdown file** - Do not just output to console
-- **File naming convention**:
+- **MUST create a Google Doc** - Do not just output to console
+- **Document title format**:
+  - With store ID: `Green Todo - [Retailer Name] [store-id] ([Month] [Day] [Year])`
+  - Without store ID: `Green Todo - [Retailer Name] ([Month] [Day] [Year])`
+  - Example: `Green Todo - Clarks prod-clarks-1 (Feb 26 2026)`
+  - Avoid special characters like apostrophes, colons, or parentheses in retailer names that could cause API errors
+- **Temporary file naming**:
   - With store ID: `green-todo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
   - Without store ID: `green-todo-[retailer]-[MM]-[DD]-[YYYY]-[Time].md`
   - Store ID: Internal Caper store ID (ex: prod-clarks-1)
   - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-  - This allows multiple files per day without deleting previous versions
-- **Folder naming convention**: `green-todo [retailer]`
-- **Save location**: `/Users/andrewsartori/Desktop/green-todo [retailer]/`
-- If the retailer-specific folder exists, use it (do NOT create another one)
-- If it doesn't exist, create it
-- Inform the user of the exact file location after creation
+  - Saved to `/tmp/` directory during upload process
+- After successful upload, provide the user with the Google Doc URL
+- Clean up temporary markdown file after upload
 
 ## Critical Success Factors
 
@@ -165,4 +167,4 @@ Use these tools to gather information:
 - **Timely**: Include target dates for each critical item
 - **Owned**: Identify who is responsible for each item when possible
 
-Generate a brief, focused green-todo task list for **$ARGUMENTS** (retailer and optional store ID) and save it as a markdown file in a Desktop folder named "green-todo [retailer]".
+Generate a brief, focused green-todo task list for **$ARGUMENTS** (retailer and optional store ID) and create it as a Google Doc using the md2doc plugin.

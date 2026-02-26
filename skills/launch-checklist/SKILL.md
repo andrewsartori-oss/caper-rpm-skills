@@ -131,27 +131,26 @@ For each item, provide:
 - **Last Updated**: Date of most recent update
 - **Action Required**: If incomplete, what needs to be done
 
-4. **Output Format** - Save the validation report as a markdown file:
-   - Create a markdown file named: `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
-   - The file name includes the time when it was created
-   - This allows multiple files to be created on the same day without deleting previous ones
-   - Save the file in the "launch-checklist [retailer]" folder on the Desktop
-   - Format as a well-structured markdown document with proper headings, lists, tables, and emphasis
+4. **Output Format** - Create a Google Doc with the validation report:
+   - First, create the report content in markdown format with proper headings, lists, tables, and emphasis
    - Use checkboxes, emojis, and formatting to make status clear at a glance
    - Include all research findings with specific details and references
    - Replace ALL [] placeholders with actual information
    - Add specific dates, ticket numbers, and concrete details
    - Include source references where applicable
+   - Document title format: `Launch Checklist - [Retailer Name] [store-id] ([Month] [Day] [Year])`
+   - Example title: `Launch Checklist - Clarks Market prod-clarks-1 (Feb 25 2026)`
 
-5. **File Creation** - CRITICAL: Check if directory exists, then create the markdown file:
-   - First, check if the directory exists: `/Users/andrewsartori/Desktop/launch-checklist [retailer]/`
-   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/launch-checklist [retailer]"`
-   - If it exists, use the existing directory (do NOT create another one)
+5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
+   - First, save the markdown content to a temporary file in `/tmp/` directory
+   - File naming: `/tmp/launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then save the file to: `/Users/andrewsartori/Desktop/launch-checklist [retailer]/launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
-   - Example: For Clarks prod-clarks-1 on Feb 19, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/launch-checklist clarks/launch-checklist-clarks-prod-clarks-1-02-19-2026-2000EST.md`
-   - Content: Complete formatted validation report in markdown
-   - After writing the file, inform the user of the exact file location
+   - Then upload to Google Docs using the md2doc upload script:
+     ```bash
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md" --title "Launch Checklist - [Retailer Name] [store-id] ([Month] [Day] [Year])"
+     ```
+   - After upload completes, inform the user of the Google Doc URL
+   - Clean up the temporary markdown file after successful upload
 
 ## Research Tools Available
 
@@ -195,7 +194,7 @@ For each of the 16 checklist items, search for evidence using mcp__glean_default
 
 ## Output Requirements
 
-- **The output file must not exceed 2,000 words**
+- **The output document must not exceed 2,000 words**
 - The report must validate ALL 16 checklist items
 - Each item must have a clear status (✅/⚠️/❌/🔍)
 - All [] brackets must be filled with real data
@@ -204,14 +203,14 @@ For each of the 16 checklist items, search for evidence using mcp__glean_default
 - Be honest about readiness - do not mark items complete without evidence
 - Flag high-risk incomplete items clearly
 - Provide actionable next steps for incomplete items
-- **MUST create a markdown file** - Do not just output to console
-- **File naming convention**: `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+- **MUST create a Google Doc** - Do not just output to console
+- **Document title format**: `Launch Checklist - [Retailer Name] [store-id] ([Month] [Day] [Year])`
+  - Example: `Launch Checklist - Clarks Market prod-clarks-1 (Feb 25 2026)`
+  - Avoid special characters like apostrophes, colons, or parentheses in retailer names that could cause API errors
+- **Temporary file naming**: `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
   - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-  - This allows multiple files per day without deleting previous versions
-- **Folder naming convention**: `launch-checklist [retailer]`
-- **Save location**: `/Users/andrewsartori/Desktop/launch-checklist [retailer]/`
-- If the retailer-specific folder exists, use it (do NOT create another one)
-- If it doesn't exist, create it
-- Inform the user of the exact file location after creation
+  - Saved to `/tmp/` directory during upload process
+- After successful upload, provide the user with the Google Doc URL
+- Clean up temporary markdown file after upload
 
-Generate the complete launch checklist validation report for **$ARGUMENTS** and save it as a markdown file in a Desktop folder named "launch-checklist [retailer]".
+Generate the complete launch checklist validation report for **$ARGUMENTS** and create it as a Google Doc using the md2doc plugin.

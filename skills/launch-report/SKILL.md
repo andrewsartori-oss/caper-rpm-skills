@@ -200,33 +200,27 @@ Evaluate against GO/NO-GO/CONDITIONAL GO criteria:
 
 **FINAL RECOMMENDATION**: Clear statement with detailed justification
 
-4. **Output Format** - Save the report as a markdown file:
-   - Create a markdown file named: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
-   - The file name includes the store ID and the time when it was created
-   - This allows multiple files to be created on the same day without deleting previous ones
-   - Save the file in the "launch-report [retailer]" folder on the Desktop
+4. **Output Format** - Create a Google Doc with the launch report:
+   - First, create the report content in markdown format
    - Format as a well-structured markdown document with proper headings, lists, and checkboxes
    - Include all research findings with specific details
    - Replace ALL [] placeholders with actual information
    - Add specific dates, ticket numbers, test results, and concrete details
    - Include source references where applicable
-   - Use checkboxes [ ] for incomplete items and [x] for completed items
-   - Add a note at the end with instructions for copying to Google Doc
+   - Use checkboxes for incomplete/completed items
+   - Document title format: `Launch Report - [Retailer Name] [store-id] ([Month] [Day] [Year])`
+   - Example title: `Launch Report - HGG prod-hgg-1 (Feb 15 2026)`
 
-5. **File Creation** - CRITICAL: Check if directory exists, then create the markdown file:
-   - First, check if the directory exists: `/Users/andrewsartori/Desktop/launch-report [retailer]/`
-   - If it doesn't exist, create it: `mkdir -p "/Users/andrewsartori/Desktop/launch-report [retailer]"`
-   - If it exists, use the existing directory (do NOT create another one)
+5. **Google Doc Creation** - CRITICAL: Create Google Doc using md2doc:
+   - First, save the markdown content to a temporary file in `/tmp/` directory
+   - File naming: `/tmp/LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
    - Get the current time in 24-hour clock format with timezone (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-   - Then save the file to: `/Users/andrewsartori/Desktop/launch-report [retailer]/LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
-   - Example: For HGG store prod-hgg-1 on Feb 15, 2026 at 8:00 PM EST: `/Users/andrewsartori/Desktop/launch-report HGG/LAUNCH-HGG-prod-hgg-1-02-15-2026-2000EST.md`
-   - Content: Complete formatted report in markdown
-   - After writing the file, inform the user of the exact file location
-
-6. **Google Doc Instructions** - Include at the end of the markdown file:
-   - Provide clear instructions for copying the formatted report into a Google Doc
-   - Suggest appropriate formatting for the Google Doc version
-   - Note that checkboxes can be converted to Google Doc checkboxes
+   - Then upload to Google Docs using the md2doc upload script:
+     ```bash
+     export PATH="$HOME/.local/bin:$PATH" && cd ~/.claude/plugins/marketplaces/instacart/md2doc/skills/md2doc/scripts/ && uv run python upload-gdoc.py "/tmp/LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md" --title "Launch Report - [Retailer Name] [store-id] ([Month] [Day] [Year])"
+     ```
+   - After upload completes, inform the user of the Google Doc URL
+   - Clean up the temporary markdown file after successful upload
 
 ## Research Tools Available
 
@@ -248,18 +242,12 @@ Use these tools to gather information:
 - List all missing artifacts and unresolved dependencies specific to this store
 - Include specific action items with owners when possible
 - Be honest about risks and readiness gaps
-- **MUST create a markdown file** - Do not just output to console
-- **File naming convention**: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
+- **MUST create a Google Doc** - Do not just output to console
+- **Document title format**: `Launch Report - [Retailer Name] [store-id] ([Month] [Day] [Year])`
+- **Temporary file naming**: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
   - Store ID: Internal Caper store ID (ex: prod-hgg-1)
-  - Time format: 24-hour clock with timezone indicated (e.g., "2000EST" for 8:00 PM EST, "0945PST" for 9:45 AM PST)
-  - Example: `LAUNCH-HGG-prod-hgg-1-02-15-2026-2000EST.md`
-  - This allows multiple files per day without deleting previous versions
-- **Folder naming convention**: `launch-report [retailer]`
-- **Save location**: `/Users/andrewsartori/Desktop/launch-report [retailer]/`
-- If the retailer-specific folder exists, use it (do NOT create another one)
-- If it doesn't exist, create it
-- Inform the user of the exact file location after creation
-- Include Google Drive upload instructions at the end of the report
+  - Saved to `/tmp/` directory during upload process
+- After successful upload, provide the user with the Google Doc URL
 
 ## Critical Success Factors
 
@@ -272,4 +260,4 @@ Use these tools to gather information:
 - **Decision-Ready**: Provide clear GO/NO-GO recommendation with confidence level
 - **Clean & Concise**: Focus on essential information without unnecessary detail
 
-Generate the complete launch readiness checklist for **$ARGUMENTS** (retailer and store ID) and save it as a markdown file in a Desktop folder named "launch-report [retailer]".
+Generate the complete launch readiness checklist for **$ARGUMENTS** (retailer and store ID) and create it as a Google Doc using the md2doc plugin.
