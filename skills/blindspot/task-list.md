@@ -24,6 +24,7 @@ This file contains the structure for identifying tasks committed to or assigned 
 - The file directory where these files are saved must follow this naming convention: blindspot [retailer-name].
     - If the file directory already exists, do not create another one, just save the file to that directory.
 - The output file must not exceed 5,000 words
+- Also save a Google document (or .webloc file) version of the MD file. Use the md2doc plugin to convert the .md file to a Google Doc.
 
 ---
 

@@ -24,6 +24,7 @@ This file contains the 16 consolidated launch checklist items that MUST be valid
 - The file directory where these files are saved must follow this naming convention: launch-checklist [retailer-name].
     - If the file directory already exists, do not create another one, just save the file to that directory.
 - The output file must not exceed 2,000 words
+- Also save a Google document (or .webloc file) version of the MD file. Use the md2doc plugin to convert the .md file to a Google Doc.
 
 ---
 

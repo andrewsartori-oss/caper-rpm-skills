@@ -35,6 +35,7 @@ This file contains actionable tasks to achieve project health (Green status) OR 
 - The file directory where these files are saved must follow this naming convention: green-todo [retailer-name].
   - If the file directory already exists, do not create another one, just save the file to that directory.
 - The output file must not exceed 4,000 words
+- Also save a Google document (or .webloc file) version of the MD file. Use the md2doc plugin to convert the .md file to a Google Doc.
 
 ---
 
