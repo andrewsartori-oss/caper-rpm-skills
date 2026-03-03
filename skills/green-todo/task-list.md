@@ -43,6 +43,10 @@ This file contains actionable tasks to achieve project health (Green status) OR 
 
 ---
 
+## For This Skill
+- Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+- Review messages and replies sent in all Slack channels containing the [retailer-name] used as an argument for this skill
+
 ## Your Tasks
 
 1. Status Overview

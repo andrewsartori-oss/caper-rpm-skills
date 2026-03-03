@@ -32,6 +32,8 @@ Surface tasks that the RPM has committed to doing or is tasked with doing but ha
    - If already in internal format, proceed directly to Research Phase
 
 1. **Research Phase** - Search for stale tasks and commitments:
+   - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+   - **CRITICAL**: Review messages and replies sent in all Slack channels containing the retailer name ($ARGUMENTS)
    - **CRITICAL FILTERING REQUIREMENT**: ONLY include tasks explicitly related to the specified retailer (first argument). EXCLUDE all tasks from other retailers.
 
    - **Retailer Filtering**:
@@ -80,13 +82,16 @@ Reference the task-list.md file in this directory for the complete report templa
 - **Status Change**: Context of how blindspots are affecting project status
 
 #### 2. Blindspot Task Checklist (Stale 24+ Hours)
-- **Critical Path Blindspots**: Tasks you committed to that are critical and haven't been touched in 24+ hours
-  - For each task: Describe what was committed, when, to whom, and what action is needed NOW
-  - Include Jira ticket numbers, Slack thread links, or email references
-  - Add specific due dates and who is waiting on you
+- **Critical Path Blindspots** (list tasks committed to that are critical and stale 24+ hours)
+    1. [Critical Blindspot - Item 1]: [What was committed, when, to whom, and what action is needed NOW]
+        - Jira Ticket: [ticket number]
+        - Slack Thread: [link]
+        - Committed Date/Time: [MM/DD/YYYY HH:MM timezone]
+        - Hours Overdue: [number]
+        - Waiting On You: [person/team name]
 
-- **Risk Management Blindspots**: Promised actions related to risks that haven't been addressed in 24+ hours
-  - For each risk: Describe the commitment made, why it's stale, and immediate action needed
+- **Risk Management Blindspots** (list promised actions related to risks that are stale 24+ hours)
+    1. [Risk Blindspot - Item 1]: [What commitment was made, why it's stale, immediate action needed]
 
 #### 3. Complete Blindspot Analysis
 

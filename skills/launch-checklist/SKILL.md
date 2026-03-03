@@ -53,6 +53,8 @@ These 16 items MUST be completed for the store to launch:
    - If already in internal format, proceed directly to Research Phase
 
 1. **Research Phase** - Gather evidence for each checklist item:
+   - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+   - **CRITICAL**: Review messages and replies sent in all Slack channels containing the retailer name ($ARGUMENTS)
    - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for tickets related to $ARGUMENTS deployment and each checklist item
    - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
@@ -123,13 +125,103 @@ List all 16 items with their current status indicator:
 
 #### 4. Launch Checklist Status (All 16 Items)
 
-For each item, provide:
+For each of the 16 required items, provide the following information:
 
-**[Item Number]. [Item Name]**
-- **Status**: ✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown
-- **Owner**: Person or team responsible
-- **Last Updated**: Date of most recent update
-- **Action Required**: If incomplete, what needs to be done
+### Item 1: Electrical complete & signed off
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 2: FC firmware updated & chargers tested
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 3: All launch carts present
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 4: HW accessories installed
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 5: W&M passed for all launch carts
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 6: 3rd-party certification (if required)
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 7: APs installed & verified per heatmap
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 8: Checkout connectivity validated
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 9: ZBC / beacons tested and passing
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 10: Software & firmware versions aligned
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 11: Store configs validated
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 12: E2E testing completed & issues logged
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 13: Cart placement confirmed
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 14: Store & OTG training completed
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 15: FSR/BA launch staffing plan confirmed
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
+
+### Item 16: Marketing complete OR documented
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
 
 4. **Output Format** - Save the validation report as a markdown file:
    - Create a markdown file named: `launch-checklist-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`

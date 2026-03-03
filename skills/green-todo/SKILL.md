@@ -36,6 +36,8 @@ Generate a focused, actionable task list to achieve project health (Green status
    - If already in internal format, proceed directly to Research Phase
 
 1. **Research Phase** - Gather current project/launch information:
+   - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+   - **CRITICAL**: Review messages and replies sent in all Slack channels containing the retailer name ($ARGUMENTS)
    - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for open tickets and blockers related to $ARGUMENTS deployment/launch for the specified store
    - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
@@ -85,12 +87,13 @@ Reference the task-list.md file in this directory for the complete template stru
 - **Brief Justification**: 1-2 sentences explaining why this status
 
 #### 2. Critical Action Items (Must Complete By [DATE])
-- **List ONLY the critical items** that must be completed to achieve Green status OR launch readiness
-  - For each item: Describe specific, actionable steps that must be taken
-  - Include owners or responsible parties when possible
-  - Include target completion dates
-  - Keep items concise and action-oriented
-  - List as many as necessary
+- List critical items needed to achieve Green status OR launch readiness (list as many as necessary)
+    1. [Critical Item 1]: [Actions that must be taken]
+        - Owner: [Name/Team]
+        - Target Date: [MM/DD/YYYY]
+    2. [Critical Item 2]: [Actions that must be taken]
+        - Owner: [Name/Team]
+        - Target Date: [MM/DD/YYYY]
 
 4. **Output Format** - Save the task list as a markdown file:
    - Create a markdown file with context-aware naming:

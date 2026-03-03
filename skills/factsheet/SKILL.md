@@ -32,6 +32,8 @@ Generate a comprehensive factsheet documenting all important facts related to th
    - If already in internal format, proceed directly to Research Phase
 
 1. **Research Phase** - Gather comprehensive information from all available sources:
+   - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+   - **CRITICAL**: Review messages and replies sent in all Slack channels containing the retailer name ($ARGUMENTS)
    - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for all tickets related to $ARGUMENTS Caper deployment
    - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields

@@ -32,6 +32,8 @@ Generate a comprehensive pre-launch readiness assessment for the specified retai
    - If already in internal format, proceed directly to Research Phase
 
 1. **Research Phase** - Gather information from all available sources:
+   - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+   - **CRITICAL**: Review messages and replies sent in all Slack channels containing the retailer name ($ARGUMENTS)
    - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for tickets related to $ARGUMENTS Caper deployment and launch preparation for the specified store
    - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields
@@ -199,6 +201,11 @@ Evaluate against GO/NO-GO/CONDITIONAL GO criteria:
 - Major workstream(s) not ready
 
 **FINAL RECOMMENDATION**: Clear statement with detailed justification
+
+#### Report Prepared By
+- Author: [Name]
+- Date: [DATE]
+- Time: [TIME with timezone]
 
 4. **Output Format** - Save the launch report as a markdown file:
    - Create a markdown file named: `LAUNCH-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`

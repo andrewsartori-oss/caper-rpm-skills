@@ -32,6 +32,8 @@ Generate a weekly changelog documenting what has changed in the specified retail
    - If already in internal format, proceed directly to Research Phase
 
 1. **Research Phase** - Gather information about changes from the past week:
+   - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+   - **CRITICAL**: Review messages and replies sent in all Slack channels containing the retailer name ($ARGUMENTS)
    - Calculate the time period: (Current Date - 7 days) to Current Date
    - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for tickets created, updated, or closed in the past week related to $ARGUMENTS

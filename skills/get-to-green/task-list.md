@@ -31,6 +31,10 @@ This file contains the tasks and risks associated with a caper deployment, inclu
 
 ---
 
+## For This Skill
+- Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+- Review messages and replies sent in all Slack channels containing the [retailer-name] used as an argument for this skill
+
 ## Your Tasks
 
 1. Overview
