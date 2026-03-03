@@ -33,7 +33,10 @@ Surface tasks that the RPM has committed to doing or is tasked with doing but ha
 
 1. **Research Phase** - Search for stale tasks and commitments:
    - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
-   - **CRITICAL**: Review messages and replies sent in all Slack channels containing the retailer name ($ARGUMENTS)
+   - **CRITICAL - Slack Channel Enumeration and Review**: Do NOT rely only on broad keyword searches. You MUST follow this exact process:
+     1. Search Glean for all Slack channels whose name contains the retailer name (search with `type:publicchannel [retailer-name]` to enumerate channels)
+     2. For each channel found, run a separate targeted Glean search using the `channel` filter for that specific channel name
+     3. Review all messages and replies in every channel containing the retailer name — skipping any channel is unacceptable
    - **CRITICAL FILTERING REQUIREMENT**: ONLY include tasks explicitly related to the specified retailer (first argument). EXCLUDE all tasks from other retailers.
 
    - **Retailer Filtering**:

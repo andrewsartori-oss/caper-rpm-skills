@@ -54,7 +54,10 @@ These 16 items MUST be completed for the store to launch:
 
 1. **Research Phase** - Gather evidence for each checklist item:
    - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
-   - **CRITICAL**: Review messages and replies sent in all Slack channels containing the retailer name ($ARGUMENTS)
+   - **CRITICAL - Slack Channel Enumeration and Review**: Do NOT rely only on broad keyword searches. You MUST follow this exact process:
+     1. Search Glean for all Slack channels whose name contains the retailer name (search with `type:publicchannel [retailer-name]` to enumerate channels)
+     2. For each channel found, run a separate targeted Glean search using the `channel` filter for that specific channel name
+     3. Review all messages and replies in every channel containing the retailer name — skipping any channel is unacceptable
    - **Store Scope**: If store ID is provided (not "all" or empty), focus on that specific store. If "all" or empty, search across all stores for the retailer
    - Search Jira for tickets related to $ARGUMENTS deployment and each checklist item
    - If store ID is specific: Look for the store ID (second argument) in ticket descriptions, labels, or fields

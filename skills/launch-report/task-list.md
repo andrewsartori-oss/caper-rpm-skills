@@ -30,7 +30,10 @@ This file contains the tasks and assessment criteria for evaluating launch readi
 
 ## For This Skill
 - Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
-- Review messages and replies sent in all Slack channels containing the [retailer-name] used as an argument for this skill
+- **CRITICAL - Slack Channel Review**: You must explicitly enumerate and search every Slack channel whose name contains the [retailer-name]. Do NOT rely only on broad keyword searches. Required process:
+  1. Use Glean to find all Slack channels with the retailer name in the channel name (e.g., search `type:publicchannel [retailer-name]`)
+  2. For each channel found, run a separate targeted Glean search using the `channel` filter for that specific channel name
+  3. Do not skip any channel — missing a channel is unacceptable
 
 ## Your Tasks
 
