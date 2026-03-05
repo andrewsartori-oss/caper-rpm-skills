@@ -22,7 +22,7 @@ Validate the completion status of all required launch checklist items for the sp
 
 ## Consolidated Launch Checklist Items
 
-These 16 items MUST be completed for the store to launch:
+These 17 items MUST be completed for the store to launch:
 
 1. **Electrical complete & signed off** - Fixed chargers on correct circuit/voltage; GFCI stable under ≥10‑cart load
 2. **FC firmware updated & chargers tested** - All launch ports tested and functional
@@ -40,6 +40,7 @@ These 16 items MUST be completed for the store to launch:
 14. **Store & OTG training completed** - Including incident flows (QVS/network down, cart unavailability, chargers, W&M stickers)
 15. **FSR/BA launch staffing plan confirmed** - Launch day and D+1/D+2 coverage
 16. **Marketing complete OR documented** - Arrival & installation complete OR soft‑launch decision documented (if launching without full signage)
+17. **Project Scope Document sign off** - Project scope document reviewed and signed off by relevant stakeholders
 
 ## Instructions
 
@@ -75,7 +76,7 @@ These 16 items MUST be completed for the store to launch:
      - Staffing plans and schedules
      - Marketing material delivery and installation confirmation
 
-2. **Validation Phase** - For each of the 16 checklist items:
+2. **Validation Phase** - For each of the 17 checklist items:
    - Determine current status: ✅ Complete, ⚠️ In Progress, ❌ Not Started, 🔍 Unknown
    - Find evidence of completion (Jira ticket, doc, Slack message, test result)
    - Identify blockers or missing information
@@ -98,16 +99,16 @@ Reference the task-list.md file in this directory for the complete report templa
 - **Overall Launch Readiness**: GO / NO-GO / CONDITIONAL GO
 
 #### 2. Launch Readiness Summary
-- **Total Items**: 16
+- **Total Items**: 17
 - **Complete**: [count] (✅)
 - **In Progress**: [count] (⚠️)
 - **Not Started**: [count] (❌)
 - **Unknown**: [count] (🔍)
 - **Completion Percentage**: [X%]
 
-#### 3. All 16 Checklist Items Status
+#### 3. All 17 Checklist Items Status
 
-List all 16 items with their current status indicator:
+List all 17 items with their current status indicator:
 
 1. ✅/⚠️/❌/🔍 **Electrical complete & signed off**
 2. ✅/⚠️/❌/🔍 **FC firmware updated & chargers tested**
@@ -125,10 +126,11 @@ List all 16 items with their current status indicator:
 14. ✅/⚠️/❌/🔍 **Store & OTG training completed**
 15. ✅/⚠️/❌/🔍 **FSR/BA launch staffing plan confirmed**
 16. ✅/⚠️/❌/🔍 **Marketing complete OR documented**
+17. ✅/⚠️/❌/🔍 **Project Scope Document sign off**
 
-#### 4. Launch Checklist Status (All 16 Items)
+#### 4. Launch Checklist Status (All 17 Items)
 
-For each of the 16 required items, provide the following information:
+For each of the 17 required items, provide the following information:
 
 ### Item 1: Electrical complete & signed off
 - Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
@@ -302,7 +304,7 @@ For each of the 16 checklist items, search for evidence using mcp__glean_default
 ## Output Requirements
 
 - **The output document must not exceed 2,000 words**
-- The report must validate ALL 16 checklist items
+- The report must validate ALL 17 checklist items
 - Each item must have a clear status (✅/⚠️/❌/🔍)
 - All [] brackets must be filled with real data
 - Include specific evidence with links/references for each item

@@ -178,3 +178,9 @@ For each of the 16 required items, provide the following information:
 - Owner: [Person or team responsible]
 - Last Updated: [MM/DD/YYYY]
 - Action Required: [If incomplete, what needs to be done]
+
+### Item 17: Project Scope Document sign off
+- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
+- Owner: [Person or team responsible]
+- Last Updated: [MM/DD/YYYY]
+- Action Required: [If incomplete, what needs to be done]
