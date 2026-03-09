@@ -62,6 +62,7 @@ cd ~/projects
 claude
 
 # Use the skills
+/project-phases Clarks
 /factsheet HGG prod-hgg-1
 /launch-report Clarks prod-clarks-1
 /get-to-green Kroger all
@@ -74,6 +75,7 @@ claude
 ## Available Skills
 
 ### Project Status & Planning
+- `/project-phases [retailer]` - Full deployment phase framework with tasks, reference links, and current phase status
 - `/get-to-green [retailer] [store-id]` - Comprehensive status report
 - `/green-todo [retailer] [store-id]` - Actionable task list for Green status
 - `/blindspot [retailer] [store-id]` - Find tasks you've committed to but haven't touched in 24+ hours
