@@ -37,7 +37,7 @@ This file contains the the tasks to be completed by the changelog-weekly SKILL. 
 ---
 
 ## For This Skill
-- Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+- **CRITICAL**: Use Glean to gather data every time and prioritize searching for, and using, the latest version of project documents. — do not refer to past skill-generated .md or .webloc documents.
 - **CRITICAL - Slack Channel Review**: You must explicitly enumerate and search every Slack channel whose name contains the [retailer-name]. Do NOT rely only on broad keyword searches. Required process:
   1. Use Glean to find all Slack channels with the retailer name in the channel name (e.g., search `type:publicchannel [retailer-name]`)
   2. For each channel found, run a separate targeted Glean search using the `channel` filter for that specific channel name
