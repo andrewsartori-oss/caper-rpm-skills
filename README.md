@@ -23,6 +23,7 @@ Or continue below for the traditional clone-and-use setup.
 ---
 
 #### Project Status & Planning Skills
+- `/project-phases [retailer-name]` - Display the full deployment phase framework, all tasks per phase with reference links, and the current phase/task status for a retailer
 - `/get-to-green [retailer-name] [store-id]` - Generate a comprehensive status report for moving a store deployment to Green status
 - `/green-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to move a store deployment to Green status
 - `/blindspot [retailer-name] [store-id]` - Identify tasks you've committed to or been assigned but haven't completed or accessed in 24+ hours
@@ -173,6 +174,10 @@ claude
 Then use any of the skills:
 
 ```
+# PROJECT PHASES - Retailer-level only (no store ID)
+/project-phases Clarks
+/project-phases HGG
+
 # SPECIFIC STORE - Focus on one store deployment
 /get-to-green Clarks prod-clarks-1
 /green-todo HGG prod-hgg-1
@@ -201,6 +206,26 @@ Then use any of the skills:
 ## ***** SKILL DETAILS *****
 
 ### Project Status & Planning Skills
+
+#### `/project-phases [retailer-name]`
+**Purpose:** Display the full Caper Cart Deployment phase framework and identify where a retailer's deployment currently stands
+
+**What it generates:**
+- All 7 project phases (Phase 0–6) with current status indicators (✅/⚠️/❌/🔍)
+- Every task per phase with labeled reference links to relevant documentation
+- Current phase task status (Complete / In Progress / Not Started / Blocked)
+- Upcoming phases preview and completed phases summary
+
+**Note:** Retailer-level only — does not support a specific store ID argument.
+
+**Output:** `project-phases-[retailer]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/project-phases [retailer]/`
+
+**Examples:**
+- `/project-phases Clarks`
+- `/project-phases HGG`
+- `/project-phases Kroger`
+
+---
 
 #### `/get-to-green [retailer-name] [store-id]`
 **Purpose:** Comprehensive "get-to-green" status report for a store deployment
