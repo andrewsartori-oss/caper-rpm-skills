@@ -54,7 +54,7 @@ These 17 items MUST be completed for the store to launch:
    - If already in internal format, proceed directly to Research Phase
 
 1. **Research Phase** - Gather evidence for each checklist item:
-   - **CRITICAL**: Use Glean to gather data every time — do not refer to past skill-generated .md or .webloc documents
+   - **CRITICAL**: Use Glean to gather data every time and prioritize searching for, and using, the latest version of project documents. — do not refer to past skill-generated .md or .webloc documents.
    - **CRITICAL - Slack Channel Enumeration and Review**: Do NOT rely only on broad keyword searches. You MUST follow this exact process:
      1. Search Glean for all Slack channels whose name contains the retailer name (search with `type:publicchannel [retailer-name]` to enumerate channels)
      2. For each channel found, run a separate targeted Glean search using the `channel` filter for that specific channel name
