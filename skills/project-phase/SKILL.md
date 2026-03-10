@@ -116,7 +116,7 @@ The following phases and tasks are the official Caper Cart Deployment framework.
 - Confirm retailer marketing
 - Align retailer and vendor technical DRIs
 - Evaluate partner relationship status (determine if new SOW with partner is needed)
-- Assign Enterprise Solution RPM and Solution Architect
+- Assign Enterprise Solution RPM, CSM and Solution Architect
 - Review Retailer Data Input form; determine if it needs to be filled in
 - Create project Slack channel (MSP or RPM)
 
@@ -261,7 +261,7 @@ The following phases and tasks are the official Caper Cart Deployment framework.
 ---
 
 ### Phase 6 – Stabilization & Transition to Sustaining
-- Monitor and manage stabilization for 5 business days (technical and non-technical)
+- Monitor and manage stabilization for 20 business days (technical and non-technical)
 - Fix issues; apply and validate fixes
 - Publish daily performance report in project Slack channel (D1–D5)
 - Determine and declare end of stabilization
