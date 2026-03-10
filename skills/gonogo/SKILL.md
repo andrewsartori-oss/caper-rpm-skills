@@ -20,27 +20,92 @@ Validate the Go/No-Go launch readiness for the specified retailer's Caper cart s
 - **All Stores Option**: If second argument is "all" or left empty, search across all stores for that retailer
 - **Store ID Resolution**: If a non-internal format is provided, resolve it to the internal Caper ID before proceeding
 
-## Consolidated Launch Checklist Items
+## Go/No-Go Checklist Items
 
-These 17 items MUST be completed for the store to launch:
+60 items across 10 categories determine the Go/No-Go decision. Each item is tagged with its blocker type:
+- 🔴 **Absolute NO-GO** if incomplete
+- 🟡 **CONDITIONAL GO** if partially complete with a documented plan and owner
+- 🟢 **Informational / best effort**
 
-1. **Electrical complete & signed off** - Fixed chargers on correct circuit/voltage; GFCI stable under ≥10‑cart load
-2. **FC firmware updated & chargers tested** - All launch ports tested and functional
-3. **All launch carts present** - Bolted, powered, and with no syncing issues
-4. **HW accessories installed** - All required accessories (e.g., bottom tray on all designated carts)
-5. **W&M passed** - All launch carts passed OR inspector visit scheduled and aligned with launch
-6. **3rd‑party certification** - (If required) Approved, scheduled, and owner confirmed
-7. **APs installed & verified** - Per heatmap plan (front end / SCO covered)
-8. **Checkout connectivity validated** - Order finalization latency & LTE‑usage at checkout within thresholds
-9. **ZBC / beacons tested** - Carts progress into finalization correctly
-10. **Software & firmware versions aligned** - All launch carts running same versions
-11. **Store configs validated** - Loyalty, alcohol handling if applicable, incentives/coupon disclaimer, roulette flags
-12. **E2E testing completed** - Issues logged (scan, produce, alcohol if applicable, audit, EBT/loyalty, transfer/finalize, charging)
-13. **Cart placement confirmed** - Aligned to heatmaps, power, and store ops
-14. **Store & OTG training completed** - Including incident flows (QVS/network down, cart unavailability, chargers, W&M stickers)
-15. **FSR/BA launch staffing plan confirmed** - Launch day and D+1/D+2 coverage
-16. **Marketing complete OR documented** - Arrival & installation complete OR soft‑launch decision documented (if launching without full signage)
-17. **Project Scope Document sign off** - Project scope document reviewed and signed off by relevant stakeholders
+### Category 1 – Hardware & Physical Infrastructure
+1. 🔴 All launch carts present on-site, bolted, powered, and syncing without errors
+2. 🔴 Store retrofit complete – electrical upgrade done and signed off (correct circuit/voltage; GFCI stable under ≥10-cart load)
+3. 🔴 Fixed chargers installed and all launch ports tested and functional
+4. 🔴 FC firmware updated and charger firmware tested
+5. 🟡 HW accessories installed on all designated carts (bag hooks, bottom trays, etc.)
+6. 🟡 Cart placement confirmed and aligned to heatmap, power availability, and store ops plan
+7. 🟡 Carts and tablets fully charged before training and launch
+
+### Category 2 – Networking & Connectivity
+8. 🔴 WiFi APs installed and verified per heatmap plan (front end and SCO areas covered)
+9. 🔴 Checkout connectivity validated – order finalization latency and LTE usage at checkout within thresholds
+10. 🔴 ZBC / beacons tested and carts progress into finalization correctly
+11. 🔴 Network whitelisting completed by retailer's networking provider
+12. 🟡 WiFi/LTE connectivity re-validated after any AP or infrastructure changes
+
+### Category 3 – Software, Configuration & Backend
+13. 🔴 All launch carts upgraded to planned production software and firmware release
+14. 🔴 All launch carts running the same software and firmware versions
+15. 🔴 Store configs validated in production – loyalty, alcohol handling (if applicable), coupon disclaimer, incentive flags, roulette flags
+16. 🔴 CM audit thresholds approved and configured in backend for the store
+17. 🔴 Cart Manager access provisioned for store team
+18. 🔴 Store team Store Admin and staff override barcodes created and distributed
+19. 🔴 Incentives enabled and validated in production (CECs, X-off-Y, Streaks, or applicable incentive types)
+20. 🔴 PODS ticket filed with Retailer Tooling team to enable new store for video inspector
+21. 🔴 Production retailer PSO Jira dashboard created (ETS)
+22. 🔴 DS ticket created and store added to Mode dashboard
+23. 🟡 DUMAC servers installed in store (if applicable to retailer's POS integration)
+24. 🟡 Instabug connected to Slack launch war room
+
+### Category 4 – Weights & Measures
+25. 🔴 W&M certification passed for all launch carts OR county inspector visit scheduled and date aligned with launch plan
+26. 🟡 3rd-party certification completed (if required by state/county) – approved, scheduled, and owner confirmed
+
+### Category 5 – Payments
+27. 🔴 Payment terminals configured (VAR sheets submitted, MIDs/TIDs set up)
+28. 🔴 Payments tested in store – debit, credit, tap, insert
+29. 🔴 Payments verified hitting retailer's backend correctly
+30. 🟡 2x Cart Manager tablets procured by retailer (if applicable)
+
+### Category 6 – Catalog, Loyalty & Integrations
+31. 🔴 Catalog ingested, validated, and sanity tested in production
+32. 🔴 Age-restricted items (alcohol, tobacco) flagged correctly in catalog
+33. 🔴 Loyalty integration validated – login, coupon view, clip, and redemption tested
+34. 🔴 Offers and promotions tested – BOGO, Buy X for $Y, Manager's Special, Employee Discount, Clearance
+35. 🔴 Caper Exclusive Coupons (CECs) and other Caper incentives tested end-to-end
+36. 🔴 T-log creation verified (transactions posting to POS/backend correctly)
+37. 🟡 Digital receipt validated (includes promos, coupons, and taxable items)
+38. 🟡 Transfer-to-cashier flow tested and passing
+39. 🟡 Large basket checkout tested (50+ items)
+
+### Category 7 – QA & Testing
+40. 🔴 E2E in-store testing completed – all test cases executed (scan, produce, alcohol if applicable, audit, loyalty, transfer/finalize, charging)
+41. 🔴 All P0 and P1 bugs resolved, or risk formally accepted and documented
+42. 🔴 Retailer UAT completed and retailer sign-off obtained
+43. 🟡 E2E test summary report produced and shared with stakeholders
+44. 🟡 All P2 bugs triaged, owners assigned, and target fix dates confirmed
+
+### Category 8 – Operations & Staffing
+45. 🔴 Store employee training completed (rounds 1 and 2) – including incident flows (network down, cart unavailability, charger issues, W&M stickers)
+46. 🔴 FSR/BA launch staffing plan confirmed – launch day, D+1, and D+2 coverage locked
+47. 🔴 Caper Champions selected by retailer
+48. 🟡 Store Associate Promotion training completed
+49. 🟡 Remote auditors booked and confirmed for launch window
+
+### Category 9 – Marketing
+50. 🟡 Marketing signage approved by retailer
+51. 🟡 Marketing signage delivered and installed in store (A-frames, standees, cart corral, aisle blades, freezer clings, checkout signage, bagging station, outdoor banners) – OR soft-launch decision formally documented
+52. 🟡 Caper lane clearly designated and visible to shoppers
+
+### Category 10 – Sign-offs, Documentation & Launch Readiness
+53. 🔴 Launch plan reviewed and signed off (RPM, CSM, SA, Ops)
+54. 🔴 Internal Go/No-Go alignment obtained
+55. 🔴 External (retailer) Go/No-Go alignment obtained
+56. 🔴 Project Scope Document reviewed and signed off
+57. 🔴 Slack launch war room set up and active
+58. 🟡 Launch report template prepared
+59. 🟡 Caper Project Transition Document drafted
+60. 🟡 Retro board created
 
 ## Instructions
 
@@ -76,13 +141,13 @@ These 17 items MUST be completed for the store to launch:
      - Staffing plans and schedules
      - Marketing material delivery and installation confirmation
 
-2. **Validation Phase** - For each of the 17 checklist items:
+2. **Validation Phase** - For each of the 60 checklist items across 10 categories:
    - Determine current status: ✅ Complete, ⚠️ In Progress, ❌ Not Started, 🔍 Unknown
    - Find evidence of completion (Jira ticket, doc, Slack message, test result)
    - Identify blockers or missing information
    - Note who is responsible/owner
    - Record last update date
-   - Assess risk if incomplete
+   - Assess risk if incomplete — pay special attention to 🔴 items, as any incomplete 🔴 item is an automatic NO-GO
 
 3. **Report Generation** - Create Go/No-Go launch readiness report:
 
@@ -96,143 +161,57 @@ Reference the task-list.md file in this directory for the complete report templa
 - **Store Location**: City, State or address if available from research
 - **Target Launch Date**: Specific date found in research
 - **Report Generated**: Date and time of this report
-- **Overall Launch Readiness**: GO / NO-GO / CONDITIONAL GO
+- **Overall Launch Readiness**: **GO / NO-GO / CONDITIONAL GO**
 
 #### 2. Launch Readiness Summary
-- **Total Items**: 17
+- **Total Items**: 60 (across 10 categories)
+- **🔴 NO-GO Blockers**: [count complete] / [count total 🔴 items]
+- **🟡 Conditional Items**: [count complete] / [count total 🟡 items]
 - **Complete**: [count] (✅)
 - **In Progress**: [count] (⚠️)
-- **Not Started**: [count] (❌)
+- **Not Started / Blocked**: [count] (❌)
 - **Unknown**: [count] (🔍)
 - **Completion Percentage**: [X%]
 
-#### 3. All 17 Checklist Items Status
+#### 3. Go/No-Go Decision
 
-List all 17 items with their current status indicator:
+State the decision clearly at the top of this section, with justification:
 
-1. ✅/⚠️/❌/🔍 **Electrical complete & signed off**
-2. ✅/⚠️/❌/🔍 **FC firmware updated & chargers tested**
-3. ✅/⚠️/❌/🔍 **All launch carts present**
-4. ✅/⚠️/❌/🔍 **HW accessories installed**
-5. ✅/⚠️/❌/🔍 **W&M passed for all launch carts**
-6. ✅/⚠️/❌/🔍 **3rd-party certification** (if required)
-7. ✅/⚠️/❌/🔍 **APs installed & verified per heatmap**
-8. ✅/⚠️/❌/🔍 **Checkout connectivity validated**
-9. ✅/⚠️/❌/🔍 **ZBC / beacons tested and passing**
-10. ✅/⚠️/❌/🔍 **Software & firmware versions aligned**
-11. ✅/⚠️/❌/🔍 **Store configs validated**
-12. ✅/⚠️/❌/🔍 **E2E testing completed & issues logged**
-13. ✅/⚠️/❌/🔍 **Cart placement confirmed**
-14. ✅/⚠️/❌/🔍 **Store & OTG training completed**
-15. ✅/⚠️/❌/🔍 **FSR/BA launch staffing plan confirmed**
-16. ✅/⚠️/❌/🔍 **Marketing complete OR documented**
-17. ✅/⚠️/❌/🔍 **Project Scope Document sign off**
+| **Decision** | **Criteria** |
+| --- | --- |
+| **GO** | All 🔴 items are ✅ Complete. All 🟡 items are either ✅ Complete or have a documented plan and owner. |
+| **CONDITIONAL GO** | All 🔴 items are ✅ Complete. One or more 🟡 items are ⚠️ In Progress with a clear owner, target date, and risk accepted in writing. |
+| **NO-GO** | One or more 🔴 items are ❌ Not Started, blocked, or 🔍 Unknown with no clear path to resolution before launch date. |
 
-#### 4. Launch Checklist Status (All 17 Items)
+#### 4. Checklist Status by Category
 
-For each of the 17 required items, provide the following information:
+For each of the 10 categories, provide a status table with every item's current status, owner, and any notes/evidence. Use this structure per category:
 
-### Item 1: Electrical complete & signed off
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
+**Category [#] – [Name]**
 
-### Item 2: FC firmware updated & chargers tested
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
+| **#** | **Blocker** | **Item** | **Status** | **Notes / Evidence** |
+| --- | --- | --- | --- | --- |
+| [#] | 🔴/🟡 | [Item description] | ✅/⚠️/❌/🔍 | [Evidence or blocker detail] |
 
-### Item 3: All launch carts present
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
+Repeat for all 10 categories:
+1. Hardware & Physical Infrastructure (items 1–7)
+2. Networking & Connectivity (items 8–12)
+3. Software, Configuration & Backend (items 13–24)
+4. Weights & Measures (items 25–26)
+5. Payments (items 27–30)
+6. Catalog, Loyalty & Integrations (items 31–39)
+7. QA & Testing (items 40–44)
+8. Operations & Staffing (items 45–49)
+9. Marketing (items 50–52)
+10. Sign-offs, Documentation & Launch Readiness (items 53–60)
 
-### Item 4: HW accessories installed
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
+#### 5. Blockers & Required Actions
 
-### Item 5: W&M passed for all launch carts
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 6: 3rd-party certification (if required)
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 7: APs installed & verified per heatmap
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 8: Checkout connectivity validated
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 9: ZBC / beacons tested and passing
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 10: Software & firmware versions aligned
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 11: Store configs validated
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 12: E2E testing completed & issues logged
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 13: Cart placement confirmed
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 14: Store & OTG training completed
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 15: FSR/BA launch staffing plan confirmed
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 16: Marketing complete OR documented
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
-
-### Item 17: Project Scope Document sign off
-- Status: [✅ Complete / ⚠️ In Progress / ❌ Not Started / 🔍 Unknown]
-- Owner: [Person or team responsible]
-- Last Updated: [MM/DD/YYYY]
-- Action Required: [If incomplete, what needs to be done]
+List all incomplete 🔴 items with:
+- Item number and description
+- Current status
+- Owner
+- Required action and target date to resolve
 
 4. **Output Format** - Save the Go/No-Go report as a markdown file:
    - Create a markdown file named: `gonogo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md`
@@ -297,7 +276,7 @@ Use this to ask natural language questions about the deployment status.
 
 ## Search Strategy
 
-For each of the 17 checklist items, search for evidence using mcp__glean_default__search:
+For each of the 60 checklist items across 10 categories, search for evidence using mcp__glean_default__search:
 - Jira tickets: `app:\"jira\"` + item keywords + store ID
 - Documentation: `app:\"gdoc\" OR app:\"confluence\"` + item keywords
 - Slack messages: `app:\"slack\"` + confirmation or status updates
@@ -309,8 +288,8 @@ For each of the 17 checklist items, search for evidence using mcp__glean_default
 
 ## Output Requirements
 
-- **The output document must not exceed 2,000 words**
-- The report must validate ALL 17 checklist items
+- **The output document must not exceed 4,000 words**
+- The report must validate ALL 60 checklist items across 10 categories
 - Each item must have a clear status (✅/⚠️/❌/🔍)
 - All [] brackets must be filled with real data
 - Include specific evidence with links/references for each item
