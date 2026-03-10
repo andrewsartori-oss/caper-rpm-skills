@@ -31,7 +31,6 @@ Or continue below for the traditional clone-and-use setup.
 #### Launch Readiness Skills
 - `/launch-checklist [retailer-name] [store-id]` - Validate completion status of all 16 required launch checklist items with evidence
 - `/launch-report [retailer-name] [store-id]` - Generate a comprehensive launch readiness assessment with workstream analysis and GO/NO-GO recommendation
-- `/launch-todo [retailer-name] [store-id]` - Generate a focused, actionable task list to launch a store
 
 #### Documentation Skills
 - `/factsheet [retailer-name] [store-id]` - Generate a comprehensive factsheet with all key facts about a retailer's deployment
