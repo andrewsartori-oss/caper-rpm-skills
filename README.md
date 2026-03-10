@@ -30,6 +30,7 @@ Or continue below for the traditional clone-and-use setup.
 
 #### Launch Readiness Skills
 - `/launch-checklist [retailer-name] [store-id]` - Validate completion status of all 16 required launch checklist items with evidence
+- `/gonogo [retailer-name] [store-id]` - Go/No-Go launch readiness decision across 60 items in 10 categories (🔴 blockers, 🟡 conditional, decision framework)
 - `/launch-report [retailer-name] [store-id]` - Generate a comprehensive launch readiness assessment with workstream analysis and GO/NO-GO recommendation
 
 #### Documentation Skills
@@ -182,6 +183,7 @@ Then use any of the skills:
 /green-todo HGG prod-hgg-1
 /blindspot Kroger prod-kroger-2
 /launch-checklist Clarks prod-clarks-1
+/gonogo Clarks prod-clarks-1
 /launch-report Albertsons prod-albertsons-5
 /launch-todo Safeway prod-safeway-2
 /factsheet HGG prod-hgg-1
@@ -320,6 +322,38 @@ Then use any of the skills:
 - `/launch-checklist Clarks` (all Clarks stores - empty store-id)
 
 **Use case:** Pre-launch validation to ensure all required items are complete with evidence before launching a store.
+
+---
+
+#### `/gonogo [retailer-name] [store-id]`
+**Purpose:** Go/No-Go launch readiness decision across 60 items in 10 categories
+
+**What it generates:**
+- Launch overview (retailer, store ID, location, target launch date, overall readiness)
+- **GO / NO-GO / CONDITIONAL GO decision** with criteria-based justification
+- **60-item validation across 10 categories:**
+  1. Hardware & Physical Infrastructure (7 items)
+  2. Networking & Connectivity (5 items)
+  3. Software, Configuration & Backend (12 items)
+  4. Weights & Measures (2 items)
+  5. Payments (4 items)
+  6. Catalog, Loyalty & Integrations (9 items)
+  7. QA & Testing (5 items)
+  8. Operations & Staffing (5 items)
+  9. Marketing (3 items)
+  10. Sign-offs, Documentation & Launch Readiness (8 items)
+- Each item tagged as 🔴 Absolute NO-GO blocker or 🟡 CONDITIONAL GO if partially complete with a plan
+- Per-category status tables with status, owner, and evidence
+- Blockers & required actions list for all incomplete 🔴 items
+
+**Output:** `gonogo-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/gonogo [retailer]/`
+
+**Examples:**
+- `/gonogo Clarks prod-clarks-1` (specific store)
+- `/gonogo Clarks all` (all Clarks stores)
+- `/gonogo Clarks` (all Clarks stores - empty store-id)
+
+**Use case:** Comprehensive pre-launch gate check — more thorough than `/launch-checklist` (60 items vs. 16), with explicit blocker classification and a structured decision framework.
 
 ---
 

@@ -68,6 +68,7 @@ claude
 /get-to-green Kroger all
 /green-todo Albertsons prod-albertsons-5
 /launch-checklist Safeway prod-safeway-2
+/gonogo Clarks prod-clarks-1
 /blindspot HGG all
 /changelog-weekly Kroger prod-kroger-2
 ```
@@ -82,6 +83,7 @@ claude
 
 ### Launch Readiness
 - `/launch-checklist [retailer] [store-id]` - Validate all 16 launch items with evidence
+- `/gonogo [retailer] [store-id]` - Go/No-Go launch readiness decision across 60 items in 10 categories (🔴 blockers, 🟡 conditional, decision framework)
 - `/launch-report [retailer] [store-id]` - Comprehensive launch readiness assessment
 - `/launch-todo [retailer] [store-id]` - Actionable launch task list
 
