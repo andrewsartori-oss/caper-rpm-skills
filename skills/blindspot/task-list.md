@@ -59,33 +59,7 @@ This file contains the structure for identifying tasks committed to or assigned 
     - Risk Management Blindspots (list promised actions related to risks that are stale 24+ hours)
         1. [Risk Blindspot - Item 1]: [What commitment was made, why it's stale, immediate action needed]
 
-3. Complete Blindspot Analysis
-    - Critical Blindspots (24+ Hours Stale)
-        1. Task: Name and description
-        2. Task: Committed To (person/team expecting action)
-        3. Task: Committed Date/Time
-        4. Task: Hours Overdue
-        5. Task: Why This is Critical
-        6. Task: Immediate Action Required (Today)
-        7. Task: Reference (Jira ticket, Slack link, email, meeting notes)
-
-    - Medium Priority Blindspots (24+ Hours Stale)
-        1. Task: Name and description
-        2. Task: Committed To (person/team)
-        3. Task: Committed Date/Time
-        4. Task: Hours Overdue
-        5. Task: Why This Matters
-        6. Task: Action Required (This Week)
-        7. Task: Reference (Jira ticket, Slack link, etc.)
-
-    - Low Priority Blindspots (24+ Hours Stale)
-        1. Task: Name and description
-        2. Task: Committed To (person/team)
-        3. Task: Hours Overdue
-        4. Task: Action Required
-        5. Task: Reference
-
-4. Recovery Action Plan
+3. Recovery Action Plan
     - Today's Actions: [What must be done today to get back on track]
         1. Action Item 1 with owner and deadline
         2. Action Item 2 with owner and deadline
