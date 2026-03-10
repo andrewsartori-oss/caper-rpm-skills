@@ -15,7 +15,7 @@ This file contains actionable tasks to help RPMs determine the phases of a Caper
   - Time should be created as 24 hour clock with timezone indicated (ex: 8:00pmEST = 2000EST)
 - The file directory where these files are saved must follow this naming convention: project-phases [retailer-name].
   - If the file directory already exists, do not create another one, just save the file to that directory.
-- The output file must not exceed 4,000 words
+- The output file must not exceed 5,000 words
 - Also save a Google document (or .webloc file) version of the MD file. Use the md2doc plugin to convert the .md file to a Google Doc.
 
 ---
@@ -31,6 +31,7 @@ This file contains actionable tasks to help RPMs determine the phases of a Caper
   1. Use Glean to find all Slack channels with the retailer name in the channel name (e.g., search `type:publicchannel [retailer-name]`)
   2. For each channel found, run a separate targeted Glean search using the `channel` filter for that specific channel name
   3. Do not skip any channel — missing a channel is unacceptable
+- Always use Glean to search for the most updated version of the project phases. Use this confluence page as default: https://instacart.atlassian.net/wiki/spaces/ENTSO/pages/4591747230/Caper+Project+Management+Guidelines+-+Project+Phases+Detailed+Tasks
 
 ---
 
