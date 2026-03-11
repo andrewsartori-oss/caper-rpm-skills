@@ -34,6 +34,7 @@ Or continue below for the traditional clone-and-use setup.
 - `/launch-report [retailer-name] [store-id]` - Generate a comprehensive launch readiness assessment with workstream analysis and GO/NO-GO recommendation
 
 #### Documentation Skills
+- `/project-summary [retailer-name] [store-id]` - Generate a comprehensive project summary covering all key topics, issues, decisions, risks, timeline, and next steps for a deployment
 - `/factsheet [retailer-name] [store-id]` - Generate a comprehensive factsheet with all key facts about a retailer's deployment
 - `/changelog-weekly [retailer-name] [store-id]` - Generate a weekly changelog documenting project changes
 
@@ -407,6 +408,30 @@ Then use any of the skills:
 ---
 
 ### Documentation Skills
+
+#### `/project-summary [retailer-name] [store-id]`
+**Purpose:** Comprehensive, informational project summary for anyone who wants a quick but complete overview of a Caper deployment — especially useful for a new RPM onboarding to a retailer
+
+**What it generates:**
+- Project overview (scope, phase, health, launch date)
+- Key stakeholders (Caper and retailer contacts)
+- Hardware summary (carts, chargers, accessories, beacons, payment terminals)
+- Technology & integrations (POS, loyalty, catalog, payment, store IDs, active features)
+- Timeline & milestones across all 7 project phases with planned vs. actual dates
+- Current open issues & blockers (with severity, owner, and status)
+- Key decisions made (with date, decision-maker, and impact)
+- Risks (likelihood, impact, mitigation, owner)
+- Recent activity from the past two weeks
+- Next steps (prioritized actions with owners and due dates)
+
+**Output:** `project-summary-[retailer]-[store-id]-[MM]-[DD]-[YYYY]-[Time].md` in `Desktop/project-summary [retailer]/`
+
+**Examples:**
+- `/project-summary Clarks prod-clarks-1` (specific store)
+- `/project-summary HGG all` (all stores)
+- `/project-summary HGG` (all stores - empty store-id)
+
+---
 
 #### `/factsheet [retailer-name] [store-id]`
 **Purpose:** Comprehensive factsheet with all key facts about a retailer's deployment

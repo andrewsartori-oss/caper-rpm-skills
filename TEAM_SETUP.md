@@ -71,6 +71,7 @@ claude
 /gonogo Clarks prod-clarks-1
 /blindspot HGG all
 /changelog-weekly Kroger prod-kroger-2
+/project-summary Clarks prod-clarks-1
 ```
 
 ## Available Skills
@@ -88,6 +89,7 @@ claude
 - `/launch-todo [retailer] [store-id]` - Actionable launch task list
 
 ### Documentation
+- `/project-summary [retailer] [store-id]` - Comprehensive project summary covering all key topics, issues, decisions, risks, timeline, and next steps
 - `/factsheet [retailer] [store-id]` - Complete deployment factsheet
 - `/changelog-weekly [retailer] [store-id]` - Weekly project changelog
 
