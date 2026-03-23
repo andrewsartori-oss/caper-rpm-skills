@@ -92,6 +92,7 @@ claude
 - `/project-summary [retailer] [store-id]` - Comprehensive project summary covering all key topics, issues, decisions, risks, timeline, and next steps
 - `/factsheet [retailer] [store-id]` - Complete deployment factsheet
 - `/changelog-weekly [retailer] [store-id]` - Weekly project changelog
+- `/scope-doc [retailer]` - Generate a complete Project Scope Document for a retailer's Caper deployment, populated with real data from Glean
 
 ## Updating Skills
 

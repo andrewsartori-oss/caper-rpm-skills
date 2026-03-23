@@ -1,7 +1,7 @@
 {
   "name": "caper-rpm-tools",
   "description": "Caper deployment management skills",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "author": {
     "name": "Andrew Sartori",
     "email": "andrew.sartori@instacart.com"

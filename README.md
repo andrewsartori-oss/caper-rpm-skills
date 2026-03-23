@@ -37,6 +37,7 @@ Or continue below for the traditional clone-and-use setup.
 - `/project-summary [retailer-name] [store-id]` - Generate a comprehensive project summary covering all key topics, issues, decisions, risks, timeline, and next steps for a deployment
 - `/factsheet [retailer-name] [store-id]` - Generate a comprehensive factsheet with all key facts about a retailer's deployment
 - `/changelog-weekly [retailer-name] [store-id]` - Generate a weekly changelog documenting project changes
+- `/scope-doc [retailer-name]` - Generate a complete Project Scope Document for a retailer's Caper deployment, populated with real data from Glean
 
 ---
 ---
